@@ -24,12 +24,12 @@ async function checkDataFile() {
         
         try {
             const emptyDataArray = {
+                "firstLaunch": true,
                 "autoLaunch": true,
                 "notesArray": []
             }
         
             const emptyDataArrayString = JSON.stringify(emptyDataArray, null, 4)
-        
             await fs.promises.writeFile(dataPath, emptyDataArrayString)
         
             console.log(`'${dataFile}' file restored`)
@@ -134,7 +134,7 @@ checkDataFile().then(() => {
             trayMenu = Menu.buildFromTemplate([
                 
                 {
-                    label: `${appName} v${version}`,
+                    label: `${appName} v${version} (preview)`,
                     enabled: false,
                     icon: isDark ? noteIconWhite : noteIconBlack
                 },
@@ -169,7 +169,7 @@ checkDataFile().then(() => {
                     label: "More options",
                     submenu: [
                         {
-                            label: "Run at startup",
+                            label: "Run on startup",
                             id: "autoLaunchID",
                             type: "checkbox",
                             click: () => switchAutoLaunch()
@@ -345,6 +345,18 @@ checkDataFile().then(() => {
                 inputWin.setEnabled(false)
                 inputWin.setEnabled(true)
             })
+
+
+            // open HELPWINDOW on first launch
+            if (data.firstLaunch) {
+                
+                openHelpWindow()
+
+                data.firstLaunch = false
+
+                const updatedData = JSON.stringify(data, null, 4)
+                fs.writeFileSync(dataPath, updatedData)
+            }
     
     
             // restore unclosed NOTEWINDOWs
@@ -375,7 +387,6 @@ checkDataFile().then(() => {
                         data.notesArray[noteIndex].id = updatedID
                         
                         const updatedData = JSON.stringify(data, null, 4)
-                        
                         fs.writeFileSync(dataPath, updatedData)
                     })
     
@@ -395,7 +406,6 @@ checkDataFile().then(() => {
                                 data.notesArray[noteIndex].y = updatedPosY
                                 
                                 const updatedData = JSON.stringify(data, null, 4)
-                                
                                 fs.writeFileSync(dataPath, updatedData)
                             }
                         })
@@ -501,7 +511,6 @@ checkDataFile().then(() => {
                     data.autoLaunch = false
 
                     const updatedData = JSON.stringify(data, null, 4)
-
                     fs.writeFileSync(dataPath, updatedData)
 
                     app.setLoginItemSettings({
@@ -514,7 +523,6 @@ checkDataFile().then(() => {
                     data.autoLaunch = true
 
                     const updatedData = JSON.stringify(data, null, 4)
-
                     fs.writeFileSync(dataPath, updatedData)
 
                     app.setLoginItemSettings({
@@ -538,10 +546,7 @@ checkDataFile().then(() => {
                 data.notesArray = []
                 
                 const updatedData = JSON.stringify(data, null, 4)
-                
-                fs.writeFileSync(dataPath, updatedData, function(error) {
-                    if (error) return console.log(error)
-                })
+                fs.writeFileSync(dataPath, updatedData)
     
                 // update TRAY menu
                 trayMenu.getMenuItemById("visibilityID").enabled = false
@@ -588,7 +593,6 @@ checkDataFile().then(() => {
             data.autoLaunch = app.getLoginItemSettings().launchItems[0].enabled
             
             const updatedData = JSON.stringify(data, null, 4)
-            
             fs.writeFileSync(dataPath, updatedData)
 
 
@@ -767,10 +771,7 @@ checkDataFile().then(() => {
                     data.notesArray.push(noteData)
                     
                     const updatedData = JSON.stringify(data, null, 4)
-                    
-                    fs.writeFileSync(dataPath, updatedData, function(error) {
-                        if (error) return console.log(error)
-                    })
+                    fs.writeFileSync(dataPath, updatedData)
                 })
                 
                 
@@ -790,7 +791,6 @@ checkDataFile().then(() => {
                             data.notesArray[noteIndex].y = updatedPosY
                             
                             const updatedData = JSON.stringify(data, null, 4)
-                            
                             fs.writeFileSync(dataPath, updatedData)
                         }
                     })
@@ -857,10 +857,7 @@ checkDataFile().then(() => {
                 data.notesArray.splice(noteIndex, 1)
             
                 const updatedData = JSON.stringify(data, null, 4)
-                
-                fs.writeFileSync(dataPath, updatedData, function(error) {
-                    if (error) return console.log(error)
-                })
+                fs.writeFileSync(dataPath, updatedData)
             }
     
 

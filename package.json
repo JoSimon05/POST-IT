@@ -1,6 +1,6 @@
 {
   "name": "post-it",
-  "version": "0.1.0-preview",
+  "version": "0.1.0",
   "description": "sticky notes app",
   "author": "Jo",
   "license": "ISC",
@@ -18,13 +18,14 @@
     "electron-builder": "^24.9.1"
   },
   "build": {
-    "productName": "POST-IT",
+    "productName": "POST-IT (preview)",
     "appId": "com.post-it.app",
     "directories": {
-      "output": "release v${version}"
+      "output": "release v${version} (preview)"
     },
     "files": [
-      "!TODO"
+      "!TODO",
+      "!README.md"
     ],
     "win": {
       "target": "nsis",
