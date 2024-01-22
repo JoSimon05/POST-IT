@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             if (timeoutID) clearTimeout(timeoutID)
         
                             timeoutID = setTimeout(() => {
-                                textField.placeholder = "press ENTER to close"
+                                textField.placeholder = "Type something or paste a link..."
                             }, 3000)
                     
                         } else {
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (timeoutID) clearTimeout(timeoutID)
     
         timeoutID = setTimeout(() => {
-            textField.placeholder = "press ENTER to close"
+            textField.placeholder = "Type something or paste a link..."
         }, 3000)
     })
 })
