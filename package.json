@@ -1,0 +1,48 @@
+{
+  "name": "post-it",
+  "version": "0.1.0-preview",
+  "description": "sticky notes app",
+  "author": "Jo",
+  "license": "ISC",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "build": "electron-builder build"
+  },
+  "dependencies": {
+    "linkifyjs": "^4.1.3"
+  },
+  "devDependencies": {
+    "electron": "^28.1.4",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "productName": "POST-IT",
+    "appId": "com.post-it.app",
+    "directories": {
+      "output": "release v${version}"
+    },
+    "files": [
+      "!TODO"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "./icons/note_icon.ico",
+      "asar": true,
+      "asarUnpack": "./database/**/*"
+    },
+    "nsis": {
+      "artifactName": "installer.exe",
+      "installerIcon": "./icons/installer_icon.ico",
+      "installerHeaderIcon": "./icons/note_icon.ico",
+      "uninstallDisplayName": "${productName}",
+      "oneClick": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "${productName}",
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": true,
+      "include": "./installer.nsh"
+    }
+  }
+}
