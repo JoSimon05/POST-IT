@@ -18,10 +18,10 @@
     "electron-builder": "^24.9.1"
   },
   "build": {
-    "productName": "POST-IT (preview)",
+    "productName": "POST-IT",
     "appId": "com.post-it.app",
     "directories": {
-      "output": "release v${version} (preview)"
+      "output": "release_${version}_preview"
     },
     "files": [
       "!TODO",
@@ -34,13 +34,13 @@
       "asarUnpack": "./database/**/*"
     },
     "nsis": {
-      "artifactName": "installer.exe",
+      "artifactName": "${productName}_${version}_setup.exe",
       "installerIcon": "./icons/installer_icon.ico",
       "installerHeaderIcon": "./icons/note_icon.ico",
-      "uninstallDisplayName": "${productName}",
+      "uninstallDisplayName": "${productName} (preview)",
       "oneClick": true,
       "createDesktopShortcut": true,
-      "shortcutName": "${productName}",
+      "shortcutName": "${productName} (preview)",
       "runAfterFinish": true,
       "deleteAppDataOnUninstall": true,
       "include": "./installer.nsh"
