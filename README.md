@@ -14,3 +14,8 @@ ___
 * based on STICKY NOTES
 * minimal
 * USER-FRIENDLY
+
+___
+### SHORTCUT ACTIVATION
+Use the key combination ALT+N to open the text input bar
+(foto input)
