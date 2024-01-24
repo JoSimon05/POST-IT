@@ -13,14 +13,8 @@
 
 ___
 
-* offline
-* based on STICKY NOTES
-* minimal
-* USER-FRIENDLY
-
-___
-### SHORTCUT ACTIVATION
-Use the key combination ALT+N to open the text input bar
+### SHORTCUTS
+Use the keys combination **ALT+N** to open the text input bar
 > you can choose Note color by input bar context menu (default is Yellow)
 
 (foto input)
@@ -32,3 +26,16 @@ Every Note is saved locally and reloaded on application startup
 ### USER-FRIENDLY
 POST-IT has been created to be as user-friendly as possible
 > see **Help?** section
+
+
+## ATTENTION!
+Before installation by *installer.exe*, the system antivirus could show a security alert. DON'T WORRY!
+You just need to click on **"More info"** ("Ulteriori informazioni" in the image below)...
+
+(foto 1)
+
+... then click on the button **"Run anyways"** ("Esegui comunque" in the image below) that appears next
+
+(foto 2)
+
+> that's because I still cannot afford the *authentication certificate* for native applications (It's not that cheap...)
