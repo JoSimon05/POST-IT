@@ -24,8 +24,10 @@
       "output": "release_${version}_preview"
     },
     "files": [
-      "!TODO",
-      "!README.md"
+      "!.github/**/*",
+      "!.gitignore",
+      "!README.md",
+      "!TODO"
     ],
     "win": {
       "target": "nsis",
