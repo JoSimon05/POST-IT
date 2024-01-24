@@ -15,27 +15,33 @@ ___
 
 ### SHORTCUTS
 Use the keys combination **ALT+N** to open the text input bar
+
+![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
+
 > you can choose Note color by input bar context menu (default is Yellow)
 
-(foto input)
+<br>
 
 ### LOCAL SAVES
-Every Note is saved locally and reloaded on application startup
+Every Note is saved inside a local database and reloaded on application startup
 > POST-IT remembers Notes' content, color and position
+
+<br>
 
 ### USER-FRIENDLY
 POST-IT has been created to be as user-friendly as possible
 > see **Help?** section
 
+<br>
 
-## ATTENTION!
-Before installation by *installer.exe*, the system antivirus could show a security alert. DON'T WORRY!
-You just need to click on **"More info"** ("Ulteriori informazioni" in the image below)...
+## PAY ATTENTION!
+Before installation by *installer.exe*, the system antivirus could show a security alert. DON'T WORRY! \
+You just need to click on **"More info"** ("Ulteriori informazioni" in the image below) ...
 
-(foto 1)
+![alert1](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/installer_alert_1.png)
 
-... then click on the button **"Run anyways"** ("Esegui comunque" in the image below) that appears next
+... finally, click on the button **"Run anyways"** ("Esegui comunque" in the image below) that appears next
 
-(foto 2)
+![alert2](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/installer_alert_2.png)
 
 > that's because I still cannot afford the *authentication certificate* for native applications (It's not that cheap...)
