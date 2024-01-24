@@ -8,8 +8,11 @@
 ![version](https://img.shields.io/badge/release-v0.1.0_%28preview%29-ffd700?style=flat-square)
 ![platform](https://img.shields.io/badge/platform-Windows-0078d4?style=flat-square)
 ![language](https://img.shields.io/badge/language-JavaScript-f0db4f?style=flat-square)
+
+(foto post-it)
+
 ___
-## SISTEMA
+
 * offline
 * based on STICKY NOTES
 * minimal
@@ -18,4 +21,14 @@ ___
 ___
 ### SHORTCUT ACTIVATION
 Use the key combination ALT+N to open the text input bar
+> you can choose Note color by input bar context menu (default is Yellow)
+
 (foto input)
+
+### LOCAL SAVES
+Every Note is saved locally and reloaded on application startup
+> POST-IT remembers Notes' content, color and position
+
+### USER-FRIENDLY
+POST-IT has been created to be as user-friendly as possible
+> see **Help?** section
