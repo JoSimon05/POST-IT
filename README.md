@@ -1,7 +1,7 @@
 
 # <img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/note_icon.ico" width="23"/> POST-IT (preview)
 
-![version](https://img.shields.io/badge/release-v0.1.0_%28preview%29-ffd700?style=flat-square&labelColor=30363d)
+![version](https://img.shields.io/badge/release-v0.1.1_%28preview%29-ffd700?style=flat-square&labelColor=30363d)
 ![platform](https://img.shields.io/badge/platform-Windows-0078d4?style=flat-square&labelColor=30363d)
 ![language](https://img.shields.io/badge/language-JavaScript-f7df1E?style=flat-square&labelColor=30363d) \
 ![npm](https://img.shields.io/badge/npm-v10.2.5-cb0000?style=flat-square&labelColor=30363d&logo=npm)
