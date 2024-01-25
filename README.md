@@ -61,6 +61,7 @@ This is the application tray:
 
 ## USER-FRIENDLY
 POST-IT has been created to be as user-friendly as possible
+> I made a...
 > look at **Help?** section in tray context menu
 
 <br>
