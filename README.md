@@ -55,6 +55,8 @@ This is the application tray:
 
 ![tray](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/tray.png)
 
+> ...
+
 <br>
 
 ## USER-FRIENDLY
