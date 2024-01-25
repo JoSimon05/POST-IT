@@ -58,3 +58,6 @@ finally, click on the button **"Run anyways"** ("Esegui comunque" in the image b
 ![alert2](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/installer_alert_2.png)
 
 > that's because I still cannot afford the *authentication certificate* for native applications (It's not that cheap...)
+
+
+[//]: # (TODO: cambia note3, )
