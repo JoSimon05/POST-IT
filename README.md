@@ -35,7 +35,7 @@ Every Note is saved inside a local database and reloaded on application startup
 <br>
 
 ### TRAY MENU
-...
+The tray contenxt menu contains some useful function
 
 ![tray](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/tray.png)
 
@@ -60,4 +60,4 @@ finally, click on the button **"Run anyways"** ("Esegui comunque" in the image b
 > that's because I still cannot afford the *authentication certificate* for native applications (It's not that cheap...)
 
 
-[//]: # (TODO: cambia note3, )
+[//]: # (TODO: cambia note3, versione Node e framework Electron)
