@@ -60,7 +60,7 @@ The application tray context menu contains some useful function, take a look!
 
 ## USER-FRIENDLY
 POST-IT has been created to be as user-friendly as possible
-> look at **Help?** section in [TRAY]()
+> look at **Help?** section in [TRAY](https://github.com/JoSimon05/POST-IT/tree/Preview?tab=readme-ov-file#tray)
 
 <br>
 
