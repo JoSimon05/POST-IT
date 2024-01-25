@@ -6,8 +6,9 @@
 
 ![version](https://img.shields.io/badge/release-v0.1.0_%28preview%29-ffd700?style=flat-square)
 ![platform](https://img.shields.io/badge/platform-Windows-0078d4?style=flat-square)
-![language](https://img.shields.io/badge/language-JavaScript-f0db4f?style=flat-square)
-![framework](https://img.shields.io/badge/framework-Electron-47848f?style=flat-square)
+![language](https://img.shields.io/badge/language-JavaScript-f0db4f?style=flat-square&logo=javascript)
+![framework](https://img.shields.io/badge/Electron-versione-47848f?style=flat-square&logo=electron)
+![node](https://img.shields.io/badge/nodeJS-versione-339933?style=flat-square&logo=nodedotjs)
 
 > A minimal reminder app based on colorful sticky notes
 
