@@ -49,11 +49,11 @@ POST-IT has been created to be as user-friendly as possible
 
 ## PAY ATTENTION!
 Before installation by *installer.exe*, the system antivirus could show a security alert. DON'T WORRY! \
-You just need to click on **"More info"** ("Ulteriori informazioni" in the image below)
+You just need to click on "**More info**" ("Ulteriori informazioni" in the image below)
 
 ![alert1](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/installer_alert_1.png)
 
-finally, click on the button **"Run anyways"** ("Esegui comunque" in the image below) that appears next
+finally, click on the button "**Run anyways**" ("Esegui comunque" in the image below) that appears next
 
 ![alert2](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/installer_alert_2.png)
 
