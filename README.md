@@ -49,7 +49,9 @@ Every Note is saved inside a local database and reloaded on application startup
 <br>
 
 ## TRAY
-The application tray context menu contains some useful function, take a look!
+The tray context menu contains some useful function, take a look!
+
+This is the application tray:
 
 ![tray](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/tray.png)
 
@@ -57,7 +59,7 @@ The application tray context menu contains some useful function, take a look!
 
 ## USER-FRIENDLY
 POST-IT has been created to be as user-friendly as possible
-> look at **Help?** section in application tray context menu
+> look at **Help?** section in tray context menu
 
 <br>
 
