@@ -6,9 +6,10 @@
 
 ![version](https://img.shields.io/badge/release-v0.1.0_%28preview%29-ffd700?style=flat-square)
 ![platform](https://img.shields.io/badge/platform-Windows-0078d4?style=flat-square)
-![language](https://img.shields.io/badge/language-JavaScript-f7df1E?style=flat-square&logo=javascript)
+![language](https://img.shields.io/badge/language-JavaScript-f7df1E?style=flat-square) \
+![npm](https://img.shields.io/badge/npm-v10.2.5-cb0000?style=flat-square&logo=npm)
+![node](https://img.shields.io/badge/NodeJS-v20.10.0-339933?style=flat-square&logo=nodedotjs)
 ![framework](https://img.shields.io/badge/Electron-v28.1.4-47848f?style=flat-square&logo=electron)
-![node](https://img.shields.io/badge/nodeJS-versione-339933?style=flat-square&logo=nodedotjs)
 
 > A minimal reminder app based on colorful sticky notes
 
@@ -21,7 +22,7 @@
 
 ___
 
-### SHORTCUTS
+## SHORTCUTS
 Use the keys combination **ALT+N** to open the text input bar
 
 ![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
@@ -30,24 +31,40 @@ Use the keys combination **ALT+N** to open the text input bar
 
 <br>
 
-### LOCAL SAVES
+## LOCAL SAVES
 Every Note is saved inside a local database and reloaded on application startup
-> POST-IT remembers Note's content, color and position
+
+```json
+"notesArray": [
+        {
+            "id": 1,
+            "text": "This is a Note!",
+            "color": "yellow",
+            "index": 1,
+            "x": 1077,
+            "y": 260
+        }
+    ]
+```
+
+> POST-IT remembers content, color and position of all Notes
 
 <br>
 
-### TRAY MENU
-The tray contenxt menu contains some useful function
+## TRAY
+The application tray context menu contains some useful function, take a look!
 
 ![tray](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/tray.png)
 
 <br>
 
-### USER-FRIENDLY
+## USER-FRIENDLY
 POST-IT has been created to be as user-friendly as possible
-> see **Help?** section
+> look at **Help?** section in [TRAY]()
 
 <br>
+
+___
 
 ## PAY ATTENTION!
 Before installation by *installer.exe*, the system antivirus could show a security alert. DON'T WORRY! \
