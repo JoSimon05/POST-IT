@@ -8,7 +8,7 @@
 ![node](https://img.shields.io/badge/NodeJS-v20.10.0-339933?style=flat-square&labelColor=30363d&logo=nodedotjs)
 ![framework](https://img.shields.io/badge/Electron-v28.1.4-47848f?style=flat-square&labelColor=30363d&logo=electron)
 
-> A minimal reminder app based on colorful sticky notes
+> **A minimal reminder app based on colorful sticky notes**
 
 <br>
 
