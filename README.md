@@ -53,7 +53,7 @@ Every Note is saved inside a local database and reloaded on application startup.
 <br>
 
 ## TRAY
-The tray context menu contains some useful function, take a look!
+The tray context menu contains some useful functions
 
 This is the application tray:
 
