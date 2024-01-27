@@ -25,7 +25,7 @@
   "build": {
     "productName": "POST-IT",
     "appId": "com.post-it.app",
-    "copyright": "Copyright © 2023-2024 ${author}",
+    "copyright": "Copyright © 2024 ${author}",
     "directories": {
       "output": "release_${version}_preview"
     },
