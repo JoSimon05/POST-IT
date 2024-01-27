@@ -53,18 +53,18 @@ Every Note is saved inside a local database and reloaded on application startup.
 <br>
 
 ## TRAY
-The tray context menu contains some useful functions
+The tray context menu contains some useful functions. 
 
-This is the application tray:
-
-![tray](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/tray.png)
+> You can find the application tray in the lower right corner of your desktop
+>
+> ![tray](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/tray.png)
 
 > ...
 
 <br>
 
 ## USER-FRIENDLY
-**POST-IT** has been created to be as user-friendly as possible, It's simple to use and It provides an overview of the main features of the application (look at "**Help?**" in tray context menu).
+**POST-IT** has been created to be as user-friendly as possible, It's simple to use and It provides an overview of the main features of the application (see "**Help?**" in tray context menu).
 
 > [!IMPORTANT]
 > Due to aesthetic issues, you can only interact with Notes with your mouse cursor
