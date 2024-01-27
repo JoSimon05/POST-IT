@@ -3,7 +3,12 @@
   "version": "0.1.1",
   "description": "Stick your Notes!",
   "author": "Jo",
-  "license": "ISC",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/JoSimon05/POST-IT#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoSimon05/POST-IT"
+  },
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -20,6 +25,7 @@
   "build": {
     "productName": "POST-IT",
     "appId": "com.post-it.app",
+    "copyright": "Copyright © 2023-2024 ${author}",
     "directories": {
       "output": "release_${version}_preview"
     },
