@@ -71,7 +71,7 @@ This is the application tray:
 
 <br>
 
-___
+---
 
 <br>
 
