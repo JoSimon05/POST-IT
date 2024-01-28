@@ -1,6 +1,7 @@
 {
   "name": "post-it",
   "version": "0.1.2",
+  "displayVersion": "v${version} (preview)",
   "description": "Stick your Notes!",
   "author": "Jo",
   "license": "UNLICENSED",
