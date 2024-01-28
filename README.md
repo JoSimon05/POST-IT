@@ -1,12 +1,11 @@
 
 # <img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/note_icon.ico" width="23"/> POST-IT (preview)
 
-[![release](https://img.shields.io/badge/latest-v0.1.2_(preview)-ffd700?style=flat-square&labelColor=30363d.png)](https://github.com/JoSimon05/POST-IT/releases)
+[![release](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/JoSimon05/POST-IT/Preview/package.json&query=displayVersion&style=flat-square&label=release&labelColor=30363d&color=ffd700)](https://github.com/JoSimon05/POST-IT/releases)
 ![platform](https://img.shields.io/badge/platform-Windows-0078d4?style=flat-square&labelColor=30363d.png)
 ![language](https://img.shields.io/badge/language-JavaScript-f7df1E?style=flat-square&labelColor=30363d.png)
 
 <!--
-![release](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/JoSimon05/POST-IT/Preview/package.json&query=version&style=flat-square&label=release&labelColor=30363d&color=ffd700)
 ![npm](https://img.shields.io/badge/npm-v10.2.5-cb0000?style=flat-square&labelColor=30363d&logo=npm)
 ![node](https://img.shields.io/badge/NodeJS-v20.10.0-339933?style=flat-square&labelColor=30363d&logo=nodedotjs)
 ![framework](https://img.shields.io/badge/Electron-v28.1.4-47848f?style=flat-square&labelColor=30363d&logo=electron)
