@@ -92,6 +92,8 @@ ___
 > > That's because I still cannot afford the *authentication certificate* for native applications (It's not that cheap...)
 
 
+updates are auto.. you just have to choose if install them right away or later
+
 <!--
 TODO: 
 
