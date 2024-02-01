@@ -1,7 +1,7 @@
 {
   "name": "post-it",
-  "version": "0.1.2",
-  "displayVersion": "v0.1.2 (preview)",
+  "version": "0.1.4",
+  "displayVersion": "v0.1.3 (preview)",
   "description": "Stick your Notes!",
   "author": "Jo",
   "license": "UNLICENSED",
@@ -10,13 +10,16 @@
     "type": "git",
     "url": "https://github.com/JoSimon05/POST-IT"
   },
+  "publish": ["github"],
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "build": "electron-builder build"
+    "build": "electron-builder build",
+    "publish": "electron-builder -p always"
   },
   "dependencies": {
+    "electron-updater": "^6.1.7",
     "linkifyjs": "^4.1.3"
   },
   "devDependencies": {
@@ -31,6 +34,7 @@
       "output": "release_${version}_preview"
     },
     "files": [
+      "!.database/**/*",
       "!.github/**/*",
       "!.gitignore",
       "!README.md",
@@ -39,8 +43,7 @@
     "win": {
       "target": "nsis",
       "icon": "./icons/note_icon.ico",
-      "asar": true,
-      "asarUnpack": "./database/**/*"
+      "asar": true
     },
     "nsis": {
       "artifactName": "${productName}_${version}_setup.exe",
@@ -51,7 +54,7 @@
       "createDesktopShortcut": true,
       "shortcutName": "${productName} (preview)",
       "runAfterFinish": true,
-      "deleteAppDataOnUninstall": true,
+      "deleteAppDataOnUninstall": false,
       "include": "./installer.nsh"
     }
   }
