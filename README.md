@@ -1,4 +1,4 @@
-
+<center>
 # <img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/note_icon.ico" width="23"/> POST-IT (preview) [WIP]
 
 [![release](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/JoSimon05/POST-IT/Preview/package.json&query=displayVersion&style=flat-square&label=latest&labelColor=30363d&color=ffd700)](https://github.com/JoSimon05/POST-IT/releases) 
@@ -95,7 +95,7 @@ ___
 
 
 updates are auto.. you just have to choose if install them right away or later
-
+</center>
 <!--
 TODO: latest verde
 
