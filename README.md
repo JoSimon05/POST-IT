@@ -20,6 +20,8 @@
 ![note3](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/note_3.png)
 ![note4](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/note_4.png)
 
+<br>
+
 ___
 
 <br>
