@@ -94,12 +94,12 @@ let isDark = nativeTheme.shouldUseDarkColors
 let isVisible = true
 
 // about shortcuts
-let inputShoutcut = "ALT+N"
-let inputMenuShortcut = "SHIFT+F10"
-let inputColorShortcut = "SHIFT+ALT+C"
-let helpShortcut = "ALT+H"
-let visibilityShortcut = "ALT+SHIFT+V"
-let trayMenuShortcut = "SHIFT+ALT+N"
+const inputShoutcut = "ALT+N"
+const inputMenuShortcut = "SHIFT+F10"
+const inputColorShortcut = "SHIFT+ALT+C"
+const helpShortcut = "ALT+H"
+const visibilityShortcut = "ALT+SHIFT+V"
+const trayMenuShortcut = "SHIFT+ALT+N"
 
 // about positions
 let screenOrigin
@@ -376,18 +376,6 @@ if(!instanceLock) {
         })
 
 
-        // open HELPWINDOW on first launch
-        if (data.firstLaunch) {
-            
-            openHelpWindow()
-
-            data.firstLaunch = false
-
-            const updatedData = JSON.stringify(data, null, 4)
-            fs.writeFileSync(checkDataFilePath, updatedData)
-        }
-
-
         // restore unclosed NOTEWINDOWs
         if (data.notesArray.length != 0) {
 
@@ -458,6 +446,18 @@ if(!instanceLock) {
                     })
                 })
             })
+        }
+
+
+        // open HELPWINDOW on first launch
+        if (data.firstLaunch) {
+            
+            openHelpWindow()
+
+            data.firstLaunch = false
+
+            const updatedData = JSON.stringify(data, null, 4)
+            fs.writeFileSync(checkDataFilePath, updatedData)
         }
 
 
