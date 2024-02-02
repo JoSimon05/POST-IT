@@ -192,13 +192,13 @@ if(!instanceLock) {
                     {
                         label: "Check for updates...",
                         id: "checkUpdateID",
-                        click: () => app.isPackaged ? checkForUpdatesFromMenu() : null
+                        click: () => app.isPackaged ? checkForUpdatesFromMenu() : console.log("no updates")
                     },
                     {
                         label: "Install update!",
                         id: "downloadUpdateID",
                         visible: false,
-                        click: () => app.isPackaged ? confirmUpdate() : null
+                        click: () => app.isPackaged ? confirmUpdate() : console.log("no updates")
                     },
                     {
                         label: "Run on startup",
@@ -874,11 +874,13 @@ if(!instanceLock) {
     ipcMain.on("createNote", (event, noteText) => {
 
         if (data.notesArray.length == 10) {
-            inputWin.webContents.send("tooManyNotes")
+            inputWin.webContents.send("clearInput")   // prevent lag
+            inputWin.webContents.send("tooManyNotes", noteText)
 
         } else {
 
             inputWin.hide()
+            inputWin.webContents.send("clearInput")
 
             // load NOTEWINDOW
             noteWin = getNoteWindow()

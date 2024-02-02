@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const textField = document.getElementById("text-field")
     
+    let lastText = null
     let timeoutID
+
+    const defaultPlaceholder = "Type something or paste a link..."
+    textField.placeholder = defaultPlaceholder
 
 
     // send text (after check) or close INPUTWINDOW
@@ -16,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault()
             
             // IPC: send 'close INPUTWINDOW' event if empty
-            if (textField.value == "") {
+            if (textField.value == "" && lastText == null) {
                 ipcRenderer.send("closeInput")
                 
             } else {
@@ -29,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const linkFromText = linkify.find(textField.value)
                     const isLink = linkFromText.length != 0 ? true : false
-                    const linkToOpen = isLink ? linkFromText[0].value : null   // just one link
+                    const linkToOpen = isLink ? linkFromText[0].value : null   // only one link!
                     const isValidLink = linkToOpen != null ? linkToOpen.startsWith("https://") || linkToOpen.startsWith("http://") : null
 
                     if (isValidLink) {
@@ -43,20 +47,24 @@ document.addEventListener("DOMContentLoaded", () => {
                         // block if over 70 characters
                         if (textField.value.length > 70) {
                             
-                            textField.value = ""
-                            
+                            // save last text and restore it
+                            lastText = textField.value
+
+                            textField.style.caretColor = "transparent"
                             textField.placeholder = "Max 70 characters"
+                            textField.value = ""
                             
                             if (timeoutID) clearTimeout(timeoutID)
         
                             timeoutID = setTimeout(() => {
-                                textField.placeholder = "Type something or paste a link..."
-                            }, 3000)
+                                textField.value = lastText
+                                textField.style.caretColor = "auto"
+                                textField.placeholder = defaultPlaceholder
+                                lastText = null
+                            }, 1000)
                     
                         } else {
-
                             ipcRenderer.send("createNote", textField.value)
-                            textField.value = ""
                         }
                     }
                 }
@@ -76,14 +84,22 @@ document.addEventListener("DOMContentLoaded", () => {
     
     
     // IPC: 'too many notes' alert
-    ipcRenderer.on("tooManyNotes", () => {
+    ipcRenderer.on("tooManyNotes", (event, noteText) => {
         
-        textField.placeholder = "There are too many opened Notes"
+        // save last text and restore it
+        lastText = noteText
+
+        textField.style.caretColor = "transparent"
+        textField.placeholder = "Too many opened Notes"
+        textField.value = ""
         
         if (timeoutID) clearTimeout(timeoutID)
     
         timeoutID = setTimeout(() => {
-            textField.placeholder = "Type something or paste a link..."
-        }, 3000)
+            textField.value = lastText
+            textField.style.caretColor = "auto"
+            textField.placeholder = defaultPlaceholder
+            lastText = null
+        }, 1000)
     })
 })
