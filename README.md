@@ -68,6 +68,11 @@ The tray context menu contains some useful functions.
 
 <br>
 
+## UPDATES
+Updates are automatically checked and installed on startup
+
+<br>
+
 ## USER-FRIENDLY
 **POST-IT** has been created to be as user-friendly as possible, It's simple to use and It provides an overview of the main features of the application (see &nbsp;**Help?**&nbsp; in tray context menu).
 
