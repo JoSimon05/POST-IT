@@ -5,6 +5,7 @@ const { name, version } = require("./package.json")
 const fs = require("fs")
 const path = require("path")
 
+
 // about paths
 const dataFile = "data.json"
 const dataFolder = ".database"
@@ -20,6 +21,7 @@ const checkDataFilePath = app.isPackaged ? dataFilePath : dataFilePathDev
 const checkDataFolderPath = app.isPackaged ? dataFolderPath : dataFolderPathDev
 
 
+
 // FUNCTION: check if all necessary files and folders exist in ".../AppData/Roaming/"
 function checkDataFile() {
 
@@ -27,27 +29,20 @@ function checkDataFile() {
     const dataFolderExists = fs.existsSync(checkDataFolderPath)
     const dataFileExists = fs.existsSync(checkDataFilePath)
 
-    if (app.isPackaged && !appFolderExists) {
-
-        console.log(`'${name}' folder still not exists in '${app.getPath("appData")} system folder`)
-
-        fs.mkdirSync(appFolder)
-
-        console.log(`'${name}' folder created manually`)
-    }
+    if (app.isPackaged && !appFolderExists) fs.mkdirSync(appFolder)
 
     if (!dataFolderExists) {
 
-        console.log(`'${dataFolder}' folder no longer exists`)
+        if (!app.isPackaged) console.log(`'${dataFolder}' folder no longer exists`)
 
         fs.mkdirSync(checkDataFolderPath)
 
-        console.log(`'${dataFolder}' folder restored`)
+        if (!app.isPackaged) console.log(`'${dataFolder}' folder restored`)
     }
 
     if (!dataFileExists) {
 
-        console.log(`'${dataFile}' file no longer exists`)
+        if (!app.isPackaged) console.log(`'${dataFile}' file no longer exists`)
         
         const emptyDataArray = {
             "firstLaunch": true,
@@ -59,7 +54,7 @@ function checkDataFile() {
         
         fs.writeFileSync(checkDataFilePath, emptyDataArrayString)
     
-        console.log(`'${dataFile}' file restored`)
+        if (!app.isPackaged) console.log(`'${dataFile}' file restored`)
     }
 }
 
@@ -78,36 +73,6 @@ const noteIconWhite = nativeImage.createFromPath(path.join(__dirname, "icons", "
 const noteIconBlack = nativeImage.createFromPath(path.join(__dirname, "icons", "note_icon_black.ico")).resize({ width: 12, height: 12 })
 const helpIcon = nativeImage.createFromPath(path.join(__dirname, "icons", "help_icon.ico"))
 
-// about windows
-let inputWin
-let noteWin
-let helpWin
-
-// about notifications
-let lauchNotif
-
-// about menus
-let tray
-let trayMenu
-let someNotes = data.notesArray.length != 0 ? true : false
-let isDark = nativeTheme.shouldUseDarkColors
-let isVisible = true
-
-// about shortcuts
-const inputShoutcut = "ALT+N"
-const inputMenuShortcut = "SHIFT+F10"
-const inputColorShortcut = "SHIFT+ALT+C"
-const helpShortcut = "ALT+H"
-const visibilityShortcut = "ALT+SHIFT+V"
-const trayMenuShortcut = "SHIFT+ALT+N"
-
-// about positions
-let screenOrigin
-let screenWidth
-let screenHeight
-let notePosX
-let notePosY
-
 // about colors
 const colorsArray = ["orange", "yellow", "green", "blue", "violet", "pink"]
 let colorIndex = 1   // default color (yellow)
@@ -120,6 +85,37 @@ const blueIcon = nativeImage.createFromPath(path.join(__dirname, "icons", "color
 const violetIcon = nativeImage.createFromPath(path.join(__dirname, "icons", "colors", "violet.ico")).resize({ width: 14, height: 14 })
 const pinkIcon = nativeImage.createFromPath(path.join(__dirname, "icons", "colors", "pink.ico")).resize({ width: 14, height: 14 })
 
+// about shortcuts
+const inputShoutcut = "ALT+N"
+const inputMenuShortcut = "SHIFT+F10"
+const inputColorShortcut = "SHIFT+ALT+C"
+const helpShortcut = "ALT+H"
+const visibilityShortcut = "ALT+SHIFT+V"
+const trayMenuShortcut = "SHIFT+ALT+N"
+
+// about windows
+let inputWin
+let noteWin
+let helpWin
+
+// about menus
+let tray
+let trayMenu
+let someNotes = data.notesArray.length != 0 ? true : false
+let isDark = nativeTheme.shouldUseDarkColors
+let isVisible = true
+
+// about positions
+let screenOrigin
+let screenWidth
+let screenHeight
+let notePosX
+let notePosY
+
+// about notifications
+let lauchNotif
+
+
 
 // APP setup
 app.setName(name)
@@ -129,6 +125,7 @@ app.setLoginItemSettings({
     enabled: data.autoLaunch
 })
 app.setJumpList([]) // empty APP jumplist
+
 
 
 // check if APP is already running
@@ -149,6 +146,7 @@ if(!instanceLock) {
         screenOrigin = screen.getPrimaryDisplay().nativeOrigin
         screenWidth = screen.getPrimaryDisplay().size.width
         screenHeight = screen.getPrimaryDisplay().size.height
+
 
         // get TRAY menu
         trayMenu = Menu.buildFromTemplate([
@@ -276,6 +274,7 @@ if(!instanceLock) {
         ])
 
 
+
         // TRAY setup
         tray = new Tray(noteIcon)
         tray.setToolTip(appName)
@@ -291,7 +290,37 @@ if(!instanceLock) {
             trayMenu.getMenuItemById("autoLaunchID").checked = app.getLoginItemSettings().launchItems[0].enabled
             tray.popUpContextMenu(trayMenu)
         })
+
+
+
+        // load INPUTWINDOW
+        inputWin = getInputWindow()    
+        inputWin.loadFile("src/input/input.html")
+
+        // close INPUTWINDOW when not focused
+        inputWin.on("blur", () => {
+            inputWin.hide()
+        })
+
+        // popup INPUTWINDOW menu
+        inputWin.webContents.on("context-menu", () => {
+            inputMenu.popup()
+        })
+
+        // prevent INPUTWINDOW system menu
+        //! BUG: Electron fix update needed
+        ////inputWin.on("system-context-menu", (event) => {
+        ////    event.preventDefault()
+        ////})
+        //! TEMPORARY SOLUTION:
+        const WM_INITMENU = 0x0116;
+        inputWin.hookWindowMessage(WM_INITMENU, () => {
+
+            inputWin.setEnabled(false)
+            inputWin.setEnabled(true)
+        })
         
+
         
         // SHORTCUT: show INPUTWINDOW
         globalShortcut.register(inputShoutcut, () => {
@@ -347,35 +376,27 @@ if(!instanceLock) {
             tray.popUpContextMenu(trayMenu, { x: screenWidth, y: screenHeight })
         })
 
+
+
+        // get launch NOTIFICATION
+        lauchNotif = new Notification({
+            icon: noteIcon,
+            title: `${appName} is running!`,
+            body: `Press ${inputShoutcut} to create a Note`,
+            silent: true
+        })
+
+        // show launch NOTIFICATION
+        if (Notification.isSupported()) {
+
+            lauchNotif.show()
+
+            lauchNotif.on("close", () => lauchNotif.close())
+            lauchNotif.on("click", () => lauchNotif.close())
+        }
+
+
         
-        // load INPUTWINDOW
-        inputWin = getInputWindow()    
-        inputWin.loadFile("src/input/input.html")
-
-        // close INPUTWINDOW when not focused
-        inputWin.on("blur", () => {
-            inputWin.hide()
-        })
-
-        // popup INPUTWINDOW menu
-        inputWin.webContents.on("context-menu", () => {
-            inputMenu.popup()
-        })
-
-        // prevent INPUTWINDOW system menu
-        //! BUG: Electron fix update needed
-        ////inputWin.on("system-context-menu", (event) => {
-        ////    event.preventDefault()
-        ////})
-        //! TEMPORARY SOLUTION:
-        const WM_INITMENU = 0x0116;
-        inputWin.hookWindowMessage(WM_INITMENU, () => {
-
-            inputWin.setEnabled(false)
-            inputWin.setEnabled(true)
-        })
-
-
         // restore unclosed NOTEWINDOWs
         if (data.notesArray.length != 0) {
 
@@ -446,6 +467,9 @@ if(!instanceLock) {
                     })
                 })
             })
+
+            // update TRAY
+            tray.setToolTip(`${appName} (${data.notesArray.length})`)
         }
 
 
@@ -461,23 +485,6 @@ if(!instanceLock) {
         }
 
 
-        // get launch NOTIFICATION
-        lauchNotif = new Notification({
-            icon: noteIcon,
-            title: `${appName} is running!`,
-            body: `Press ${inputShoutcut} to create a Note`,
-            silent: true
-        })
-
-        // show launch NOTIFICATION
-        if (Notification.isSupported()) {
-
-            lauchNotif.show()
-
-            lauchNotif.on("close", () => lauchNotif.close())
-            lauchNotif.on("click", () => lauchNotif.close())
-        }
-
 
         // log DETAILS
         console.log(
@@ -485,6 +492,7 @@ if(!instanceLock) {
             `\ndark-theme: ${isDark}`,
             `\nrestored-notes: ${data.notesArray.length}`
         )
+
 
 
         // auto-check for updates (don't run in dev mode)
@@ -661,6 +669,10 @@ if(!instanceLock) {
 
             const updatedData = JSON.stringify(data, null, 4)
             fs.writeFileSync(checkDataFilePath, updatedData)
+
+
+            // update TRAY
+            tray.setToolTip(appName)
 
             // update TRAY menu
             trayMenu.getMenuItemById("visibilityID").enabled = false
@@ -907,6 +919,10 @@ if(!instanceLock) {
 
                 const updatedData = JSON.stringify(data, null, 4)
                 fs.writeFileSync(checkDataFilePath, updatedData)
+                
+                
+                // update TRAY
+                tray.setToolTip(`${appName} (${data.notesArray.length})`)
             })
 
 
@@ -930,6 +946,7 @@ if(!instanceLock) {
                     }
                 })
             })
+
 
             // prevent NOTEWINDOW system menu
             //! BUG: Electron fix update needed
@@ -957,6 +974,7 @@ if(!instanceLock) {
 
                 if (noteFromId) noteFromId.show()
             })
+
 
             // update TRAY menu
             trayMenu.getMenuItemById("visibilityID").enabled = true
@@ -993,6 +1011,10 @@ if(!instanceLock) {
             fs.writeFileSync(checkDataFilePath, updatedData)
         }
 
+        
+        // update TRAY
+        tray.setToolTip(`${appName}${data.notesArray.length != 0 ? ` (${data.notesArray.length})` : ""}`)
+        
         // update TRAY menu
         if (data.notesArray.length == 0) {
 
