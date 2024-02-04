@@ -37,7 +37,7 @@ Use the keys combination &nbsp;**ALT+N**&nbsp; to open the text input bar.
 <br>
 
 ## LOCAL SAVES
-Every Note is saved inside a local database and reloaded on application startup.
+Every Note is stored inside a local database and reloaded on application startup.
 
 ```json
 "notesArray": [
