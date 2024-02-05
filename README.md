@@ -72,7 +72,7 @@ The tray context menu contains some useful functions.
 Updates are automatically checked and downloaded on startup, then you can choose when to install them.
 
 > [!NOTE]
-> Installing new versions of **POST-IT**, you won't lose your stored Notes
+> Even if you install new versions of application, you won't lose your stored Notes
 
 <br>
 
