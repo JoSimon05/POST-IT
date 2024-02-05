@@ -69,7 +69,10 @@ The tray context menu contains some useful functions.
 <br>
 
 ## UPDATES
-Updates are automatically checked and installed on startup
+Updates are automatically checked and downloaded on startup, then you can choose when to install them.
+
+> [!NOTE]
+> Installing new versions of **POST-IT**, you won't lose your stored Notes
 
 <br>
 
@@ -99,7 +102,6 @@ ___
 > > That's because I still cannot afford the *authentication certificate* for native applications (It's not that cheap...)
 
 
-updates are auto.. you just have to choose if install them right away or later
 
 <!--
 TODO: latest verde
