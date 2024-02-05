@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     
     
+    
     // IPC: clear TEXTFIELD
     ipcRenderer.on("clearInput", () => {
         textField.value = ""

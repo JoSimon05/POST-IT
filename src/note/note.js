@@ -64,7 +64,21 @@ document.addEventListener("DOMContentLoaded", () => {
             })
 
             linkText.addEventListener("mouseleave", () => {
-                message.innerHTML = ""
+
+                if (message.innerText == "Open link..." || message.innerText == "") {
+                    message.innerHTML = ""
+            
+                } else {
+        
+                    message.innerHTML = "Copied!"
+                    
+                    if (timeoutID) clearTimeout(timeoutID)
+        
+                    timeoutID = setTimeout(() => {
+                        message.innerHTML = ""
+                    }, 3000)
+                }
+
                 linkText.style.color = "rgba(0, 0, 0, 1)"
             })
 
@@ -75,6 +89,20 @@ document.addEventListener("DOMContentLoaded", () => {
             // open LINK
             linkText.addEventListener("click", () => {
                 ipcRenderer.send("openLink", { url: linkToOpen, id: noteID })
+            })
+
+            // open LINK menu
+            linkText.addEventListener("contextmenu", (event) => {
+                event.preventDefault()
+                
+                clipboard.writeText(linkToOpen)
+                message.innerHTML = "Copied!"
+                
+                if (timeoutID) clearTimeout(timeoutID)
+                
+                timeoutID = setTimeout(() => {
+                    message.innerHTML = ""
+                }, 3000)
             })
 
             linkText.style.cursor = "pointer"

@@ -5,7 +5,7 @@ body {
 
     margin: 0;
 
-    background: linear-gradient(-45deg, rgba(0, 0, 0, 0) 12.5%, white 0%);
+    background: linear-gradient(-45deg, rgba(0, 0, 0, 0) 10%, white 0%);
 
     font-family: Segoe UI;
     font-size: 14px;
@@ -89,8 +89,8 @@ li {
 
 
 #corner-container {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 
     margin: 0;
 
@@ -104,16 +104,16 @@ li {
 }
 
 #corner-box {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
 
     position: fixed;
-    left: 100% -100px;
-    top: 100% -100px;
+    left: 100% -80px;
+    top: 100% -80px;
 
     background: linear-gradient(-45deg, rgba(0, 0, 0, 0) 50%, white 50%);
 
-    transition: .05s;
+    transition: .1s;
 }
 
 #corner {
@@ -126,17 +126,17 @@ li {
 
     background: linear-gradient(-45deg, rgba(0, 0, 0, 0) 50% , lightgrey 50%);
 
-    transition: .05s;
+    transition: .1s;
 }
 
 #corner-container:hover #corner-box {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 
 #corner-container:hover #corner {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 
-    box-shadow: 0 10px 30px 10px rgb(0, 0, 0, 0.5); /* DA RIVEDERE */
+    box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
 }

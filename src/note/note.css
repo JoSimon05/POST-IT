@@ -94,7 +94,7 @@ body {
     left: 100% -50px;
     top: 100% -50px;
 
-    transition: .05s;
+    transition: .1s;
 }
 
 #corner {
@@ -105,7 +105,7 @@ body {
     right: 0;
     bottom: 0;
 
-    transition: .05s;
+    transition: .1s;
 }
 
 #corner-container:hover #corner-box {
@@ -117,5 +117,5 @@ body {
     width: 50px;
     height: 50px;
 
-    box-shadow: 0 5px 20px 5px rgb(0, 0, 0, 0.5);
+    box-shadow: 0 5px 30px 5px rgb(0, 0, 0, 0.5);
 }
