@@ -32,12 +32,12 @@ Use the keys combination &nbsp;**ALT+N**&nbsp; to open the text input bar.
 ![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
 
 > [!TIP]
-> You can choose Note color by input bar context menu (default is &nbsp;<img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/colors/yellow.ico" width="11"/> **Yellow**&nbsp; on startup)
+> You can choose Note color by input bar context menu <s>(default is &nbsp;<img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/colors/yellow.ico" width="11"/> **Yellow**&nbsp; on startup)</s>
 
 <br>
 
 ## LOCAL SAVES
-Every Note is saved inside a local database and reloaded on application startup.
+Every Note is stored inside a local database and reloaded on application startup.
 
 ```json
 "notesArray": [
@@ -69,7 +69,10 @@ The tray context menu contains some useful functions.
 <br>
 
 ## UPDATES
-Updates are automatically checked and installed on startup
+Updates are automatically checked and downloaded on startup, then you can choose when to install them.
+
+> [!NOTE]
+> Installing new versions of **POST-IT**, you won't lose your stored Notes
 
 <br>
 
@@ -99,7 +102,6 @@ ___
 > > That's because I still cannot afford the *authentication certificate* for native applications (It's not that cheap...)
 
 
-updates are auto.. you just have to choose if install them right away or later
 
 <!--
 TODO: latest verde
