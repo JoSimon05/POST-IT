@@ -27,7 +27,9 @@ ___
 <br>
 
 ## SHORTCUTS
-* **ALT+N** - open text Input bar
+* **ALT+N**
+
+  Open text Input bar
 
   ![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
 
