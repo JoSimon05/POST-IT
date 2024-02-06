@@ -34,10 +34,12 @@ ___
   > [!TIP]
   > You can choose Note color by input bar context menu <s>(default is &nbsp;<img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/colors/yellow.ico" width="11"/> **Yellow**&nbsp; on startup)</s>
 
-* ALT+C.
+* ALT+C
+
   ...
 
-* ALT+V.
+* ALT+V
+
   ...
 
 <br>
