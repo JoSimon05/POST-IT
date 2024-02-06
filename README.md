@@ -27,12 +27,22 @@ ___
 <br>
 
 ## SHORTCUTS
-Use the keys combination &nbsp;**ALT+N**&nbsp; to open the text input bar.
+* **ALT+N**
 
-![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
+  Open text Input bar
 
-> [!TIP]
-> You can choose Note color by input bar context menu <s>(default is &nbsp;<img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/colors/yellow.ico" width="11"/> **Yellow**&nbsp; on startup)</s>
+  ![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
+
+  > [!TIP]
+  > You can choose Note color by input bar context menu <s>(default is &nbsp;<img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/colors/yellow.ico" width="11"/> **Yellow**&nbsp; on startup)</s>
+
+* **ALT+C** - choose Note color (when Input bar is opened)
+
+  ...
+
+* **ALT+V** - switch Notes visibility (...)
+
+  ...
 
 <br>
 
@@ -72,7 +82,7 @@ The tray context menu contains some useful functions.
 Updates are automatically checked and downloaded on startup, then you can choose when to install them.
 
 > [!NOTE]
-> Installing new versions of **POST-IT**, you won't lose your stored Notes
+> Even if you install new versions of application, you won't lose your stored Notes
 
 <br>
 
