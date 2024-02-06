@@ -29,16 +29,16 @@ ___
 ## SHORTCUTS
 * Use the keys combination &nbsp;**ALT+N**&nbsp; to open the text input bar.
 
-    ![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
+  ![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
 
-    > [!TIP]
-    > You can choose Note color by input bar context menu <s>(default is &nbsp;<img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/colors/yellow.ico" width="11"/> **Yellow**&nbsp; on startup)</s>
+  > [!TIP]
+  > You can choose Note color by input bar context menu <s>(default is &nbsp;<img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/colors/yellow.ico" width="11"/> **Yellow**&nbsp; on startup)</s>
 
-* ALT+C
-    ...
+* ALT+C.
+  ...
 
-* ALT+V
-    ...
+* ALT+V.
+  ...
 
 <br>
 
