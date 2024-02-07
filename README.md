@@ -85,7 +85,7 @@ Updates are automatically checked and downloaded on startup, then you can choose
 **POST-IT** has been created to be as user-friendly as possible, It's simple to use and It provides an overview of the main features of the application (see &nbsp;**Help?**&nbsp; in tray context menu).
 
 > [!IMPORTANT]
-> Due to aesthetic issues, you can only interact with Notes with your mouse cursor
+> Due to aesthetic issues, you can only interact with Notes by using your mouse cursor
 
 <br>
 
