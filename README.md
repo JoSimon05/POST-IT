@@ -27,15 +27,15 @@ ___
 <br>
 
 ## SHORTCUTS
-* **ALT+N** - open text Input bar
+* **ALT+N** to open text Input bar
 
   ![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
 
-* **ALT+C** - choose Note color
+* **ALT+C** to choose Note color
 
   > colors menu can only be displayed when Input bar is opened
 
-* **ALT+V** - switch Notes visibility (...)
+* **ALT+V** to switch Notes visibility (...)
 
   ...
 
