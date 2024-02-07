@@ -31,7 +31,7 @@ ___
 
   ![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
 
-* **ALT+C**&nbsp; to choose Note color
+* **ALT+C**&nbsp; to choose current Note color
 
   > colors menu can only be displayed when Input bar is opened
 
