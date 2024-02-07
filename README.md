@@ -35,9 +35,9 @@ ___
 
   > colors menu can only be displayed when Input bar is opened
 
-* **ALT+V**&nbsp; to switch Notes visibility (...)
+* **ALT+V**&nbsp; to switch Notes visibility
 
-  ...
+  > even if Notes are hidden, they will be show on startup and when you create a new Note
 
 <br>
 
