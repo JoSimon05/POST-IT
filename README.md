@@ -39,6 +39,8 @@ ___
 
   > even if Notes are hidden, they will be show on startup and when you create a new Note
 
+* **ALT+SHIFT+N**&nbsp; to open Tray context menu
+
 <br>
 
 ## LOCAL SAVES
@@ -63,9 +65,9 @@ Every Note is stored inside a local database and reloaded on application startup
 <br>
 
 ## TRAY
-The tray context menu contains some useful functions. 
+The Tray context menu contains some useful functions. 
 
-> You can find the application tray in the lower right corner of your desktop
+> You can find the application Tray in the lower right corner of your desktop
 >
 > ![tray](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/tray.png)
 
@@ -82,7 +84,7 @@ Updates are automatically checked and downloaded on startup, then you can choose
 <br>
 
 ## USER-FRIENDLY
-**POST-IT** has been created to be as user-friendly as possible, It's simple to use and It provides an overview of the main features of the application (see &nbsp;**Help?**&nbsp; in tray context menu).
+**POST-IT** has been created to be as user-friendly as possible, It's simple to use and It provides an overview of the main features of the application (see &nbsp;**Help?**&nbsp; in Tray context menu).
 
 > [!IMPORTANT]
 > Due to aesthetic issues, you can only interact with Notes by using your mouse cursor
