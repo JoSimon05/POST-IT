@@ -1,7 +1,7 @@
 
-const { app, BrowserWindow, Notification, Tray, nativeImage, Menu, ipcMain, screen, globalShortcut, nativeTheme, shell, dialog } = require("electron")
+const { app, BrowserWindow, dialog, globalShortcut, ipcMain, Menu, Notification, nativeImage, nativeTheme, screen, shell, Tray } = require("electron")
 const { autoUpdater } = require("electron-updater")
-const { name, version, build } = require("./package.json")
+const { info, name } = require("./package.json")
 const fs = require("fs")
 const path = require("path")
 
@@ -61,7 +61,7 @@ function checkDataFile() {
 checkDataFile() // check if all necessary files and folders exist in ".../AppData/Roaming/"
 
 
-const appName = build.productName
+const appName = info.displayName
 const data = JSON.parse(fs.readFileSync(checkDataFilePath))
 
 // about icons
@@ -119,7 +119,7 @@ let lauchNotif
 
 // APP setup
 app.setName(name)
-app.setAppUserModelId(build.appId)
+app.setAppUserModelId(info.displayAppID)
 app.setLoginItemSettings({
     openAtLogin: true,
     enabled: data.autoLaunch
@@ -152,7 +152,7 @@ if(!instanceLock) {
         trayMenu = Menu.buildFromTemplate([
             
             {
-                label: `${appName} v${version} (preview)`,
+                label: `${appName} ${info.displayVersion}`,
                 enabled: false,
                 icon: isDark ? noteIconWhite : noteIconBlack
             },
