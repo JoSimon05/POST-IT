@@ -19,7 +19,7 @@
   },
   "info": {
     "displayName": "POST-IT",
-    "displayVersion": "v${version} (preview)",
+    "displayVersion": "v0.1.12 (preview)",
     "displayAppID": "com.post-it.app"
   },
   "dependencies": {
