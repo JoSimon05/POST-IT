@@ -101,9 +101,8 @@ let helpWin
 // about menus
 let tray
 let trayMenu
+let areVisible = true
 let someNotes = data.notesArray.length != 0 ? true : false
-let isDark = nativeTheme.shouldUseDarkColors
-let isVisible = true
 
 // about positions
 let screenOrigin
@@ -153,8 +152,17 @@ if(!instanceLock) {
             
             {
                 label: `${appName} ${info.displayVersion}`,
+                id: "titleWhiteID",
                 enabled: false,
-                icon: isDark ? noteIconWhite : noteIconBlack
+                icon: noteIconWhite,
+                visible: nativeTheme.shouldUseDarkColors ? true : false
+            },
+            {
+                label: `${appName} ${info.displayVersion}`,
+                id: "titleBlackID",
+                enabled: false,
+                icon: noteIconBlack,
+                visible: nativeTheme.shouldUseDarkColors ? false : true
             },
             
             { type: "separator" },
@@ -177,7 +185,7 @@ if(!instanceLock) {
                 id: "visibilityID",
                 accelerator: visibilityShortcut,
                 type: "checkbox",
-                checked: someNotes && isVisible,
+                checked: someNotes && areVisible,
                 enabled: someNotes,
                 click: () => switchVisibility()
             },
@@ -275,18 +283,31 @@ if(!instanceLock) {
 
 
 
+        // change TITLE icon theme (in tray menu)
+        nativeTheme.on("updated", () => {
+
+            if (nativeTheme.shouldUseDarkColors) {
+                trayMenu.getMenuItemById("titleWhiteID").visible = true
+                trayMenu.getMenuItemById("titleBlackID").visible = false
+                
+            } else {
+                trayMenu.getMenuItemById("titleWhiteID").visible = false
+                trayMenu.getMenuItemById("titleBlackID").visible = true
+            }
+        })
+
+
+
         // TRAY setup
         tray = new Tray(noteIcon)
         tray.setToolTip(appName)
 
         tray.on("click", () => {
-
             trayMenu.getMenuItemById("autoLaunchID").checked = app.getLoginItemSettings().launchItems[0].enabled
             tray.popUpContextMenu(trayMenu)
         })
 
         tray.on("right-click", () => {
-            
             trayMenu.getMenuItemById("autoLaunchID").checked = app.getLoginItemSettings().launchItems[0].enabled
             tray.popUpContextMenu(trayMenu)
         })
@@ -489,7 +510,7 @@ if(!instanceLock) {
         // log DETAILS
         console.log(
             `auto-launch: ${data.autoLaunch}`,
-            `\ndark-theme: ${isDark}`,
+            `\ndark-theme: ${nativeTheme.shouldUseDarkColors}`,
             `\nrestored-notes: ${data.notesArray.length}`
         )
 
@@ -589,7 +610,7 @@ if(!instanceLock) {
 
             if (data.notesArray.length != 0) {
 
-                if (isVisible) {
+                if (areVisible) {
                     
                     // hide all NOTEWINDOWs
                     data.notesArray.forEach(note => {
@@ -603,7 +624,7 @@ if(!instanceLock) {
                     trayMenu.getMenuItemById("visibilityID").checked = false
                     tray.setContextMenu(trayMenu)
                     
-                    isVisible = false
+                    areVisible = false
 
                 } else {
                     
@@ -619,7 +640,7 @@ if(!instanceLock) {
                     trayMenu.getMenuItemById("visibilityID").checked = true
                     tray.setContextMenu(trayMenu)
                     
-                    isVisible = true
+                    areVisible = true
                 }
             }
         }
@@ -982,7 +1003,7 @@ if(!instanceLock) {
             trayMenu.getMenuItemById("clearAllID").enabled = true
             tray.setContextMenu(trayMenu)
 
-            isVisible = true
+            areVisible = true
         }
     })
 

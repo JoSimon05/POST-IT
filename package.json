@@ -1,6 +1,11 @@
 {
+  "info": {
+    "displayName": "POST-IT",
+    "displayVersion": "v0.1.13 (preview)",
+    "displayAppID": "com.post-it.app"
+  },
   "name": "post-it",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Stick your Notes!",
   "author": "Jo",
   "license": "UNLICENSED",
@@ -16,11 +21,6 @@
     "pack": "electron-builder --dir",
     "build": "electron-builder build",
     "publish": "electron-builder -p always"
-  },
-  "info": {
-    "displayName": "POST-IT",
-    "displayVersion": "v0.1.12 (preview)",
-    "displayAppID": "com.post-it.app"
   },
   "dependencies": {
     "electron-updater": "^6.1.7",
