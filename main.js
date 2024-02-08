@@ -558,6 +558,7 @@ if(!instanceLock) {
                             silent: true
                         })
 
+                        // show update-alert NOTIFICATION
                         if (Notification.isSupported()) {
 
                             updateHelpNotif.show()
@@ -719,6 +720,7 @@ if(!instanceLock) {
                     silent: true
                 })
 
+                // show no-update NOTIFICATION
                 if (Notification.isSupported()) {
 
                     noUpdateNotif.show()
