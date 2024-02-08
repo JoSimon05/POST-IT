@@ -399,7 +399,7 @@ if(!instanceLock) {
 
 
 
-        // get launch NOTIFICATION
+        // build launch NOTIFICATION
         lauchNotif = new Notification({
             icon: noteIcon,
             title: `${appName} is running!`,
@@ -550,6 +550,7 @@ if(!instanceLock) {
 
                     if (message.response !== 0) {
 
+                        // build update-alert NOTIFICATION
                         const updateHelpNotif = new Notification({
                             icon: updateIconHigh,
                             title: "Update is still available!",
@@ -710,6 +711,7 @@ if(!instanceLock) {
 
             autoUpdater.on("update-not-available", (info) => {
 
+                // build no-update NOTIFICATION
                 const noUpdateNotif = new Notification({
                     icon: noteIcon,
                     title: `${appName} is up-to-date!`,
