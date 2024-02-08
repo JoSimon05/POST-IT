@@ -124,7 +124,7 @@ li {
     right: 0;
     bottom: 0;
 
-    background: linear-gradient(-45deg, rgba(0, 0, 0, 0) 50% , lightgrey 50%);
+    background: linear-gradient(-45deg, rgba(0, 0, 0, 0) 50% , rgb(225, 225, 225, 1) 50%);
 
     transition: .1s;
 }
@@ -138,5 +138,5 @@ li {
     width: 80px;
     height: 80px;
 
-    box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: -5px 10px 20px 0px rgba(0, 0, 0, 0.5);
 }

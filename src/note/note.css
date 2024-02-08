@@ -117,5 +117,5 @@ body {
     width: 50px;
     height: 50px;
 
-    box-shadow: 0 5px 30px 5px rgb(0, 0, 0, 0.5);
+    box-shadow: -5px 10px 20px 0px rgb(0, 0, 0, 0.5);
 }
