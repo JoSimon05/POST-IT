@@ -87,7 +87,7 @@ const pinkIcon = nativeImage.createFromPath(path.join(__dirname, "icons", "color
 
 // about shortcuts
 const inputShoutcut = "ALT+N"
-const inputMenuShortcut = "SHIFT+F10"
+const inputMenuShortcut = "SHIFT+F10"   // system default
 const inputColorShortcut = "ALT+C"
 const helpShortcut = "ALT+H"
 const visibilityShortcut = "ALT+V"
@@ -170,7 +170,7 @@ if(!instanceLock) {
             {
                 label: "Help?",
                 accelerator: helpShortcut,
-                click: () => openHelpWindow()
+                click: () => showHelpWindow()
             },
 
             { type: "separator" },
@@ -318,6 +318,25 @@ if(!instanceLock) {
         inputWin = getInputWindow()    
         inputWin.loadFile("src/input/input.html")
 
+        // register SHORTCUTs only when visible
+        inputWin.on("show", () => {
+
+            // SHORTCUT: prevent default window closing event
+            globalShortcut.register("CTRL+W", () => null)
+
+            // SHORTCUT: popup INPUTWINDOW menu
+            globalShortcut.register(inputMenuShortcut, () => {
+                inputMenu.popup({ x: screenOrigin.x, y: screenOrigin.y })
+            })
+        })
+
+        // unregister SHORTCUTs when hidden
+        inputWin.on("hide", () => {
+            globalShortcut.unregister("CTRL+W")
+            globalShortcut.unregister(inputMenuShortcut)
+        })
+
+
         // close INPUTWINDOW when not focused
         inputWin.on("blur", () => {
             inputWin.hide()
@@ -348,17 +367,6 @@ if(!instanceLock) {
             showInputWindow()
         })
 
-        // SHORTCUT: open INPUT menu
-        globalShortcut.register(inputMenuShortcut, () => {
-
-            if (inputWin && inputWin.isVisible()) {
-                inputMenu.popup({
-                    x: screenOrigin.x,
-                    y: screenOrigin.y
-                })
-            }
-        })
-
         // SHORTCUT: open INPUT submenu (color)
         globalShortcut.register(inputColorShortcut, () => {
 
@@ -372,19 +380,7 @@ if(!instanceLock) {
 
         // SHORTCUT: open HELPWINDOW
         globalShortcut.register(helpShortcut, () => {
-            openHelpWindow()
-        })
-
-        // SHORTCUT: prevent default window closing event
-        globalShortcut.register("CTRL+W", () => {
-            
-            if (inputWin && inputWin.isVisible()) {
-                inputWin.hide()
-            }
-            
-            if (helpWin && helpWin.isFocused()) {
-                helpWin.close()
-            }
+            showHelpWindow()
         })
 
         // SHORTCUT: switch NOTEWINDOWs visibility
@@ -497,7 +493,7 @@ if(!instanceLock) {
         // open HELPWINDOW on first launch
         if (data.firstLaunch) {
             
-            openHelpWindow()
+            showHelpWindow()
 
             data.firstLaunch = false
 
@@ -580,7 +576,7 @@ if(!instanceLock) {
 
 
         // FUNCTION: open HELPWINDOW
-        function openHelpWindow() {
+        function showHelpWindow() {
 
             if (!helpWin || helpWin.isDestroyed()) {
 
@@ -588,8 +584,27 @@ if(!instanceLock) {
                 helpWin.loadFile("src/help/help.html")
     
                 helpWin.on("ready-to-show", () => helpWin.show())
-    
-    
+                
+                
+                // SHORTCUT: prevent default window closing event when visible/focused
+                helpWin.on("show", () => {
+                    globalShortcut.register("CTRL+W", () => null)
+                })
+
+                helpWin.on("focus", () => {
+                    globalShortcut.register("CTRL+W", () => null)
+                })
+
+                // unregister SHORTCUTs when blurred/closed
+                helpWin.on("blur", () => {
+                    globalShortcut.unregister("CTRL+W")
+                })
+
+                helpWin.on("closed", () => {
+                    globalShortcut.unregister("CTRL+W")
+                })
+            
+                
                 // prevent HELPWINDOW system menu
                 //! BUG: Electron fix update needed
                 ////helpWin.on("system-context-menu", (event) => {
@@ -885,12 +900,12 @@ if(!instanceLock) {
 
         if (!inputWin.isDestroyed()) {
 
-            if (inputWin.isVisible()) {
+            if (!inputWin.isVisible()) {
+                inputWin.show()
+                
+            } else {
                 inputWin.hide()
                 inputWin.webContents.send("clearInput")
-
-            } else {
-                inputWin.show()
             }
 
         } else {
