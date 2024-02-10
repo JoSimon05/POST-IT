@@ -336,7 +336,6 @@ if(!instanceLock) {
             globalShortcut.unregister(inputMenuShortcut)
         })
 
-
         // close INPUTWINDOW when not focused
         inputWin.on("blur", () => {
             inputWin.hide()
