@@ -39,6 +39,8 @@ ___
 
   > even if Notes are hidden, they will be show on startup and when you create a new Note
 
+* **ALT+H**&nbsp; to open Help window (...)
+
 * **ALT+SHIFT+N**&nbsp; to open [Tray context menu](https://github.com/JoSimon05/POST-IT?tab=readme-ov-file#tray)
 
 <br>
