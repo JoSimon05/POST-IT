@@ -445,6 +445,7 @@ if(!instanceLock) {
                     fs.writeFileSync(checkDataFilePath, updatedData)
                 })
 
+                
                 // update all restored NOTEWINDOWs position (x, y)
                 noteToRestore.on("moved", () => {
 
@@ -466,6 +467,7 @@ if(!instanceLock) {
                     })
                 })
 
+
                 // prevent NOTEWINDOW system menu
                 //! BUG: Electron fix update needed
                 ////noteWin.on("system-context-menu", (event) => {
@@ -484,6 +486,7 @@ if(!instanceLock) {
                     })
                 })
             })
+
 
             // update TRAY
             tray.setToolTip(`${appName} (${data.notesArray.length})`)
