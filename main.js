@@ -424,6 +424,7 @@ if(!instanceLock) {
                 const restoredX = noteToRestore.x
                 const restoredY = noteToRestore.y
 
+                // load restored NOTEWINDOWs
                 noteToRestore = getNoteWindow()
                 noteToRestore.loadFile("src/note/note.html")
 
