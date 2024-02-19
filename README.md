@@ -33,15 +33,21 @@ ___
 
 * **ALT+C**&nbsp; to choose current Note color
 
-  > colors menu can only be displayed when Input bar is opened
+  > Color menu can only be displayed when Input bar is opened
 
-* **ALT+V**&nbsp; to switch Notes visibility
+* **ALT+V**&nbsp; to move all Notes above other opened windows
 
-  > even if Notes are hidden, they will be show on startup and when you create a new Note
+  > Notes may still be hidden if they lose focus
 
-* **ALT+H**&nbsp; to open Help window (...)
+* **ALT+P**&nbsp; to pin/unpin all Notes on the top level of your desktop
 
-* **ALT+SHIFT+N**&nbsp; to open [Tray context menu](https://github.com/JoSimon05/POST-IT?tab=readme-ov-file#tray)
+  > Every new Note will be pinned automatically if other Notes are
+
+* **ALT+H**&nbsp; to open Help window
+
+  > Help cannot be closed by pressing the shortcut again
+
+* **SHIFT+ALT+N**&nbsp; to open [Tray context menu](https://github.com/JoSimon05/POST-IT?tab=readme-ov-file#tray)
 
 <br>
 
