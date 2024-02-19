@@ -519,8 +519,8 @@ if(!instanceLock) {
         // build alert notification
         const quitPreventNotif = new Notification({
             icon: alertIcon,
-            title: `${appName} was prevented from closing!`,
-            body: 'Click on "Quit" (in Tray menu) to close the whole application',
+            title: `${appName} is still running!`,
+            body: 'Click "Quit" to close the application',
             silent: false
         })
 
@@ -892,7 +892,7 @@ if(!instanceLock) {
                     const updateHelpNotif = new Notification({
                         icon: updateIconHigh,
                         title: "Update is still available!",
-                        body: 'Click on "Install update!" (in Tray menu)\nto proceed with the installation',
+                        body: 'Click "Install update!" to proceed with\nthe installation of the update',
                         silent: false
                     })
 

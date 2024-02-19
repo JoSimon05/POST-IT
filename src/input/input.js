@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             lastText = textField.value
 
                             textField.style.caretColor = "transparent"
-                            textField.placeholder = "Max 70 characters"
+                            textField.placeholder = "Max 70 characters!"
                             textField.value = ""
                             
 
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lastText = noteText
 
         textField.style.caretColor = "transparent"
-        textField.placeholder = "Too many opened Notes"
+        textField.placeholder = "Too many opened Notes!"
         textField.value = ""
 
 
