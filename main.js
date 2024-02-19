@@ -59,7 +59,7 @@ function checkDataFile() {
     }
 }
 
-checkDataFile() // check if all necessary files and folders exist in ".../AppData/Roaming/"
+checkDataFile() // check DATA file/folder
 
 
 const appName = info.displayName
@@ -438,7 +438,7 @@ if(!instanceLock) {
                     noteToRestore.show()
 
 
-                    // update DATA file
+                    // update DATA file (already checked!)
                     const noteIndex = data.notesArray.findIndex(n => n.id === restoredID)
 
                     data.notesArray[noteIndex].id = updatedID
@@ -461,7 +461,7 @@ if(!instanceLock) {
 
             showHelpWindow()
 
-            // update DATA file
+            // update DATA file (already checked!)
             data.firstLaunch = false
 
             const updatedData = JSON.stringify(data, null, 4)
@@ -492,7 +492,9 @@ if(!instanceLock) {
     // execute before APP quit
     app.on("before-quit", () => {
 
-        // update DATA file
+        // check and update DATA file
+        checkDataFile()
+        
         data.autoLaunch = app.getLoginItemSettings().launchItems[0].enabled   // check auto-launch value
         
         const updatedData = JSON.stringify(data, null, 4)
@@ -961,7 +963,9 @@ if(!instanceLock) {
 
             if (result.response === 0) {
 
-                // update DATA file
+                // check and update DATA file
+                checkDataFile()
+                
                 data.firstLaunch = true
 
                 const updatedData = JSON.stringify(data, null, 4)
@@ -980,11 +984,14 @@ if(!instanceLock) {
 
         if (data.autoLaunch) {
 
-            // update DATA file
+            // check and update DATA file
+            checkDataFile()
+            
             data.autoLaunch = false
 
             const updatedData = JSON.stringify(data, null, 4)
             fs.writeFileSync(checkDataFilePath, updatedData)
+
 
             // set auto-launch value
             app.setLoginItemSettings({
@@ -994,11 +1001,14 @@ if(!instanceLock) {
 
         } else {
 
-            // update DATA file
+            // check and update DATA file
+            checkDataFile()
+        
             data.autoLaunch = true
 
             const updatedData = JSON.stringify(data, null, 4)
             fs.writeFileSync(checkDataFilePath, updatedData)
+
 
             // set auto-launch value
             app.setLoginItemSettings({
@@ -1022,7 +1032,9 @@ if(!instanceLock) {
         arePinned = false
 
 
-        // update DATA file
+        // check and update DATA file
+        checkDataFile()
+        
         data.notesArray = []
 
         const updatedData = JSON.stringify(data, null, 4)
@@ -1048,7 +1060,9 @@ if(!instanceLock) {
 
         colorIndex = index
 
-        // update DATA file
+        // check and update DATA file
+        checkDataFile()
+        
         data.lastColorIndex = colorIndex
 
         const updatedData = JSON.stringify(data, null, 4)
@@ -1079,8 +1093,10 @@ if(!instanceLock) {
                 if (noteFromId) {
 
                     const noteIndex = data.notesArray.findIndex(n => n.id === note.id)
-
-                    // update DATA file
+                    
+                    // check and update DATA file
+                    checkDataFile()
+        
                     data.notesArray[noteIndex].x = updatedPosX
                     data.notesArray[noteIndex].y = updatedPosY
 
@@ -1164,7 +1180,9 @@ if(!instanceLock) {
                     y: notePosY
                 }
 
-                // update DATA file
+                // check and update DATA file
+                checkDataFile()
+
                 data.notesArray.push(noteData)
 
                 const updatedData = JSON.stringify(data, null, 4)
@@ -1209,7 +1227,9 @@ if(!instanceLock) {
 
         if (noteIndex !== -1) {
 
-            // update DATA file
+            // check and update DATA file
+            checkDataFile()
+
             data.notesArray.splice(noteIndex, 1)
 
             const updatedData = JSON.stringify(data, null, 4)
