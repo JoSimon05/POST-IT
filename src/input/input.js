@@ -13,19 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
     textField.placeholder = defaultPlaceholder
 
 
-    // send text (after check) or close INPUTWINDOW
+    // execute when KEY is pressed
     textField.addEventListener("keydown", event => {
     
+        // execute if KEY is "ENTER"
         if (event.key === "Enter") {
             event.preventDefault()
             
-            // IPC: send 'close INPUTWINDOW' event if empty
+            // hide INPUT if empty
             if (textField.value == "" && lastText == null) {
-                ipcRenderer.send("closeInput")
+
+                // IPC: send 'hideInput' event
+                ipcRenderer.send("hideInput")
                 
             } else {
                 
-                // prevent (spaced) empty text
+                // prevent if blank/spaced text
                 if (!/\S/.test(textField.value)) {
                     textField.value = ""
                     
@@ -33,18 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const linkFromText = linkify.find(textField.value)
                     const isLink = linkFromText.length != 0 ? true : false
-                    const linkToOpen = isLink ? linkFromText[0].value : null   // only one link!
+                    const linkToOpen = isLink ? linkFromText[0].value : null // only one link!
                     const isValidLink = linkToOpen != null ? linkToOpen.startsWith("https://") || linkToOpen.startsWith("http://") : null
 
+
+                    // ignore characters limit (link)
                     if (isValidLink) {
 
-                        // no characters limit if link
+                        // IPC: send 'createNote' event
                         ipcRenderer.send("createNote", textField.value)
                         textField.value = ""
 
                     } else {
 
-                        // block if over 70 characters
+                        // block if over 70 characters (no link)
                         if (textField.value.length > 70) {
                             
                             // save last text and restore it
@@ -54,6 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             textField.placeholder = "Max 70 characters"
                             textField.value = ""
                             
+
+                            // overwrite current timeout
                             if (timeoutID) clearTimeout(timeoutID)
         
                             timeoutID = setTimeout(() => {
@@ -64,27 +71,35 @@ document.addEventListener("DOMContentLoaded", () => {
                             }, 1000)
                     
                         } else {
+
+                            // IPC: send 'createNote' event
                             ipcRenderer.send("createNote", textField.value)
                         }
                     }
                 }
             }
     
-        // IPC: send 'close INPUTWINDOW' event if 'ESCAPE' key is pressed
-        } else if(event.key === "Escape") {
-            ipcRenderer.send("closeInput")
+        }
+        
+        
+        // execute if KEY is "ESC"
+        if(event.key === "Escape") {
+
+            // IPC: send 'hideInput' event
+            ipcRenderer.send("hideInput")
         }
     })
     
     
     
-    // IPC: clear TEXTFIELD
+
+    // IPC: clear INPUT text field
     ipcRenderer.on("clearInput", () => {
         textField.value = ""
     })
     
     
-    // IPC: 'too many notes' alert
+    // IPC: prevent if too many NOTEs
     ipcRenderer.on("tooManyNotes", (event, noteText) => {
         
         // save last text and restore it
@@ -93,7 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
         textField.style.caretColor = "transparent"
         textField.placeholder = "Too many opened Notes"
         textField.value = ""
-        
+
+
+        // overwrite current timeout
         if (timeoutID) clearTimeout(timeoutID)
     
         timeoutID = setTimeout(() => {

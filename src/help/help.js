@@ -10,26 +10,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const corner = document.getElementById("corner-container")
     
 
-    // copy example text
+    // mouse events (text)
     copyExample.addEventListener("click", () => {
+        
+        // copy example text
         clipboard.writeText(copyExample.textContent)
         copied.innerHTML = "copied!"
     })
 
 
-    // open example link
+    // mouse events (link)
     linkExample.addEventListener("click", () => {
+
+        // IPC: send 'openExampleLink' event
         ipcRenderer.send("openExampleLink")
     })
 
-    // copy example link
     linkExample.addEventListener("contextmenu", (event) => {
         event.preventDefault()
+
+        // copy example link
         clipboard.writeText("https://example.com/post-it/help/open-link-example")
     })
 
 
-    // CORNER mouse hovering events
+    // mouse events (corner)
     corner.addEventListener("mouseenter", () => {
         closeExample.style.color = "rgba(0, 0, 0, 0.5)"
     })
@@ -38,8 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
         closeExample.style.color = "rgba(0, 0, 0, 1)"
     })
 
-    // IPC: send 'close HELPWINDOW' event
     corner.addEventListener("click", () => {
+
+        // IPC: send 'closeHelp' event
         ipcRenderer.send("closeHelp")
     })
 })

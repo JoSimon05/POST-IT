@@ -4,6 +4,7 @@ const linkify = require("linkifyjs")
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const pinText = document.getElementById("pin-text")
     const noteText = document.getElementById("note-text")
     const cornerContainer = document.getElementById("corner-container")
     const cornerBox = document.getElementById("corner-box")
@@ -28,16 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
     ]
 
     const secColorsArray = [
-        "225, 163, 44",   // darker orange -30
-        "225, 225, 70",   // darker yellow -30
-        "155, 205, 41",   // darker green -30
-        "108, 192, 225",   // darker blue -30
-        "176, 99, 225",   // darker violet -30
-        "225, 117, 187"   // darker pink -30
+        "225, 163, 44",   // darker orange (-30)
+        "225, 225, 70",   // darker yellow (-30)
+        "155, 205, 41",   // darker green (-30)
+        "108, 192, 225",   // darker blue (-30)
+        "176, 99, 225",   // darker violet (-30)
+        "225, 117, 187"   // darker pink (-30)
     ]
 
 
-    // IPC: display NOTEWINDOW content
+    // IPC: display NOTE content
     ipcRenderer.on("displayNote", (event, data) => {
         
         noteID = data.id   // id -1
@@ -45,8 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         linkFromText = linkify.find(textFromData)
         isLink = linkFromText.length != 0 ? true : false
-        linkToOpen = isLink ? linkFromText[0].value : null   // just one link
+        linkToOpen = isLink ? linkFromText[0].value : null // only one link!
         isValidLink = linkToOpen != null ? linkToOpen.startsWith("https://") || linkToOpen.startsWith("http://") : null
+        
         
         if (isValidLink) {
             
@@ -57,7 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const linkText = document.getElementById("link-text")
 
-            // LINKTEXT mouse hovering events
+            
+            // mouse events (link)
             linkText.addEventListener("mouseenter", () => {
                 message.innerHTML = "Open link..."
                 linkText.style.color = "rgba(0, 0, 0, 0.5)"
@@ -72,6 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
                     message.innerHTML = "Copied!"
                     
+
+                    // overwrite current timeout
                     if (timeoutID) clearTimeout(timeoutID)
         
                     timeoutID = setTimeout(() => {
@@ -86,18 +91,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 message.innerHTML = ""
             })
 
-            // open LINK
             linkText.addEventListener("click", () => {
+
+                // IPC: send 'openLink' event
                 ipcRenderer.send("openLink", { url: linkToOpen, id: noteID })
             })
 
-            // open LINK menu
             linkText.addEventListener("contextmenu", (event) => {
                 event.preventDefault()
                 
+                // copy link
                 clipboard.writeText(linkToOpen)
                 message.innerHTML = "Copied!"
                 
+
+                // overwrite current timeout
                 if (timeoutID) clearTimeout(timeoutID)
                 
                 timeoutID = setTimeout(() => {
@@ -114,13 +122,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         
+        // manage NOTE colors
         document.body.style.background = `linear-gradient(-45deg, rgba(0, 0, 0, 0) 12.5%, rgba(${colorsArray[data.colorIndex]}, 1) 0%)`
         cornerBox.style.background = `linear-gradient(-45deg, rgba(0, 0, 0, 0) 50%, rgba(${colorsArray[data.colorIndex]}, 1) 50%)`
         corner.style.background = `linear-gradient(-45deg, rgba(0, 0, 0, 0) 50%, rgba(${secColorsArray[data.colorIndex]}, 1) 50%)`
     })
 
 
-    // NOTETEXT mouse hovering events
+    // mouse events (text - no link)
     noteText.addEventListener("mouseenter", () => {
         
         if (!isValidLink) {
@@ -139,7 +148,9 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
     
                 message.innerHTML = "Copied!"
-                
+
+
+                // overwrite current timeout
                 if (timeoutID) clearTimeout(timeoutID)
     
                 timeoutID = setTimeout(() => {
@@ -152,19 +163,22 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     
     noteText.addEventListener("mousedown", () => {
+
         if (!isValidLink) {
             message.innerHTML = ""
         }
     })
     
-    // copy NOTETEXT
     noteText.addEventListener("click", () => {
 
         if (!isValidLink) {
 
+            // copy text
             clipboard.writeText(noteText.textContent)
             message.innerHTML = "Copied!"
             
+
+            // overwrite current timeout
             if (timeoutID) clearTimeout(timeoutID)
             
             timeoutID = setTimeout(() => {
@@ -174,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     
     
-    // CORNER mouse hovering events
+    // mouse events (corner - no link)
     cornerContainer.addEventListener("mouseenter", () => {
         message.innerHTML = "Delete..."
     })
@@ -183,8 +197,23 @@ document.addEventListener("DOMContentLoaded", () => {
         message.innerHTML = ""
     })
     
-    // IPC: send 'close NOTEWINDOW' event
     cornerContainer.addEventListener("click", () => {
-        ipcRenderer.send("closeNote", noteID)
+        
+        // IPC: send 'deleteNote' event
+        ipcRenderer.send("deleteNote", noteID)
+    })
+
+
+
+
+    // IPC: pin NOTE
+    ipcRenderer.on("pinNote", () => {
+        pinText.innerHTML = "Pinned!"
+    })
+    
+
+    // IPC: unpin NOTE
+    ipcRenderer.on("unpinNote", () => {
+        pinText.innerHTML = ""
     })
 })

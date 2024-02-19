@@ -30,6 +30,12 @@ body {
     justify-content: center;
 }
 
+#pin-text {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: smaller;
+    font-weight: 500;
+}
+
 #separator {
     width: 85%;
     height: 40px;
