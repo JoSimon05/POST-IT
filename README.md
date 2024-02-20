@@ -53,7 +53,7 @@ Every Note is stored inside a local database and reloaded on application startup
 > [!NOTE]
 > **POST-IT** remembers content, color and position of all Notes
 > 
-> ```json
+> ```
 > "notesArray": [
 >     {
 >         "id": 1,
