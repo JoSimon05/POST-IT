@@ -977,6 +977,7 @@ if(!instanceLock) {
                 const updatedData = JSON.stringify(data, null, 4)
                 fs.writeFileSync(checkDataFilePath, updatedData)
 
+                
                 isUpdating = true
                 autoUpdater.quitAndInstall() // quit and install update
             }
