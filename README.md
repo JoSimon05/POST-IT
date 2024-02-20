@@ -31,7 +31,7 @@ ___
 
   ![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
 
-* **ALT+C**&nbsp; to choose current Note color
+* **ALT+C**&nbsp; to choose color of current Note
 
   > Color menu can only be displayed when Input bar is opened
 
@@ -87,7 +87,7 @@ The Tray context menu contains some useful functions.
 Updates are automatically checked and downloaded on startup, then you can choose when to install them.
 
 > [!NOTE]
-> Even if you install new versions of application, you won't lose your [stored Notes](https://github.com/JoSimon05/POST-IT?tab=readme-ov-file#local-saves)
+> Even if you install new versions of application, you won't lose your [stored data](https://github.com/JoSimon05/POST-IT?tab=readme-ov-file#local-saves)
 
 <br>
 
