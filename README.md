@@ -5,15 +5,9 @@
 ![platform](https://img.shields.io/badge/Platform-Windows-0078d4?style=flat-square&labelColor=30363d)
 ![language](https://img.shields.io/badge/Language-JavaScript-f7df1E?style=flat-square&labelColor=30363d)
 
-<!--
-![npm](https://img.shields.io/badge/npm-v10.2.5-cb0000?style=flat-square&labelColor=30363d&logo=npm)
-![node](https://img.shields.io/badge/NodeJS-v20.10.0-339933?style=flat-square&labelColor=30363d&logo=nodedotjs)
-![framework](https://img.shields.io/badge/Electron-v28.1.4-47848f?style=flat-square&labelColor=30363d&logo=electron)
--->
+<br>
 
 > **A minimal reminder app based on colorful sticky notes, which you can pin on your desktop**
-
-<br>
 
 ![note1](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/note_1.png)
 ![note2](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/note_2.png)
@@ -23,27 +17,27 @@
 <br>
 
 ## SHORTCUTS
-* **ALT+N**&nbsp; to open text Input bar
+**ALT+N** &nbsp;&#10230;&nbsp; open text Input bar
 
   ![input](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/input.png)
 
-* **ALT+C**&nbsp; to choose color of current Note
+<br> **ALT+C** &nbsp;&#10230;&nbsp; choose color of current Note
 
   > Color menu can only be displayed when Input bar is opened
 
-* **ALT+V**&nbsp; to move all Notes above other opened windows
+<br> **ALT+V** &nbsp;&#10230;&nbsp; move all Notes above other opened windows
 
   > Notes may still be hidden if they lose focus
 
-* **ALT+P**&nbsp; to pin/unpin all Notes on the top z-level of your desktop
+<br> **ALT+P** &nbsp;&#10230;&nbsp; pin/unpin all Notes on the top z-level of your desktop
 
   > Every new Note will be pinned automatically if other Notes are
 
-* **ALT+H**&nbsp; to open Help window
+<br> **ALT+H** &nbsp;&#10230;&nbsp; open Help window
 
   > Help cannot be closed by pressing the shortcut again
 
-* **SHIFT+ALT+N**&nbsp; to open [Tray context menu](https://github.com/JoSimon05/POST-IT?tab=readme-ov-file#tray)
+<br> **SHIFT+ALT+N** &nbsp;&#10230;&nbsp; open [Tray context menu](https://github.com/JoSimon05/POST-IT?tab=readme-ov-file#tray)
 
 <br>
 
@@ -66,17 +60,13 @@ Every Note is stored inside a local database and reloaded on application startup
 > ]
 > ```
 
-
-
 <br>
 
-## TRAY
-The Tray context menu is the main application menu and It contains a lot of useful functions, you can find it in the lower right corner of your desktop.
-
+## TRAY CONTEXT MENU
 > [!TIP]
-> This is the Tray:
-> 
 > ![tray](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/tray.png)
+
+The Tray context menu is the main application menu and It contains a lot of useful functions, you can find it in the lower right corner of your desktop.
 
 <br>
 
@@ -84,7 +74,7 @@ The Tray context menu is the main application menu and It contains a lot of usef
 Updates are automatically checked and downloaded on startup, then you can choose when to install them.
 
 > [!NOTE]
-> Even if you install new versions of application, you won't lose your [stored data](https://github.com/JoSimon05/POST-IT?tab=readme-ov-file#local-saves)
+> Even if you install new versions of the application, you won't lose your [stored data](https://github.com/JoSimon05/POST-IT?tab=readme-ov-file#local-saves)
 
 <br>
 
@@ -96,12 +86,12 @@ Updates are automatically checked and downloaded on startup, then you can choose
 
 <br>
 
-___
+# TRY POST-IT!
+### Check [Releases page](https://github.com/JoSimon05/POST-IT/releases) and download the latest version available.
 
 <br>
 
 > [!WARNING]
-> ## APPLICATION SETUP
 > Before installation by *installer.exe*, the system antivirus could show a security alert. DON'T WORRY! \
 > You just need to click on "**More info**" ("Ulteriori informazioni" in the image below)
 > 
@@ -113,10 +103,12 @@ ___
 >
 > > That's because I still cannot afford the *authentication certificate* for native applications (It's not that cheap...)
 
+<br>
+
 
 
 <!--
-TODO: latest verde
+TODO: 
 
 SPAZIO EXTRA: &nbsp;
 
