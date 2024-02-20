@@ -87,7 +87,7 @@ The Tray context menu contains some useful functions.
 Updates are automatically checked and downloaded on startup, then you can choose when to install them.
 
 > [!NOTE]
-> Even if you install new versions of application, you won't lose your [stored Notes](https://github.com/JoSimon05/POST-IT?tab=readme-ov-file#local-saves)
+> Even if you install new versions of application, you won't lose your [stored data](https://github.com/JoSimon05/POST-IT?tab=readme-ov-file#local-saves)
 
 <br>
 
