@@ -1,5 +1,5 @@
 
-# <img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/note_icon.ico" width="23"/> POST-IT (preview) [WIP]
+# <img src="https://github.com/JoSimon05/POST-IT/blob/Preview/icons/note_icon.ico" width="23"/> POST-IT (preview)
 
 [![release](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/JoSimon05/POST-IT/Preview/package.json&query=version&style=flat-square&label=Latest&labelColor=30363d&color=2ea043)](https://github.com/JoSimon05/POST-IT/releases) 
 ![platform](https://img.shields.io/badge/Platform-Windows-0078d4?style=flat-square&labelColor=30363d)
@@ -11,7 +11,7 @@
 ![framework](https://img.shields.io/badge/Electron-v28.1.4-47848f?style=flat-square&labelColor=30363d&logo=electron)
 -->
 
-**A minimal reminder app based on colorful sticky notes**
+> **A minimal reminder app based on colorful sticky notes, which you can pin on your desktop**
 
 <br>
 
@@ -35,7 +35,7 @@
 
   > Notes may still be hidden if they lose focus
 
-* **ALT+P**&nbsp; to pin/unpin all Notes on the top level of your desktop
+* **ALT+P**&nbsp; to pin/unpin all Notes on the top z-level of your desktop
 
   > Every new Note will be pinned automatically if other Notes are
 
@@ -50,21 +50,23 @@
 ## LOCAL SAVES
 Every Note is stored inside a local database and reloaded on application startup.
 
-```json
-"notesArray": [
-    {
-        "id": 1,
-        "text": "This is a Note!",
-        "color": "yellow",
-        "index": 1,
-        "x": 1597,
-        "y": 112
-    }
-]
-```
-
 > [!NOTE]
 > **POST-IT** remembers content, color and position of all Notes
+> 
+> ```json
+> "notesArray": [
+>     {
+>         "id": 1,
+>         "text": "This is a Note!",
+>         "color": "yellow",
+>         "index": 1,
+>         "x": 1597,
+>         "y": 112
+>     }
+> ]
+> ```
+
+
 
 <br>
 
