@@ -115,6 +115,9 @@ let screenHeight
 let notePosX
 let notePosY
 
+// about updates
+let isUpdating = false
+
 
 
 // APP setup
@@ -516,24 +519,27 @@ if(!instanceLock) {
     // execute when all windows are closed/destroyed
     app.on("window-all-closed", () => {
         
-        // build alert notification
-        const quitPreventNotif = new Notification({
-            icon: alertIcon,
-            title: `${appName} is still running!`,
-            body: 'Click "Quit" to close the application',
-            silent: false
-        })
+        if (!isUpdating) {
 
-        // show alert notification
-        if (Notification.isSupported()) {
-
-            quitPreventNotif.show()
-
-            quitPreventNotif.on("close", () => quitPreventNotif.close())
-            quitPreventNotif.on("click", () => quitPreventNotif.close())
+            // build alert notification
+            const quitPreventNotif = new Notification({
+                icon: alertIcon,
+                title: `${appName} is still running!`,
+                body: 'Click "Quit" to close the application',
+                silent: false
+            })
+    
+            // show alert notification
+            if (Notification.isSupported()) {
+    
+                quitPreventNotif.show()
+    
+                quitPreventNotif.on("close", () => quitPreventNotif.close())
+                quitPreventNotif.on("click", () => quitPreventNotif.close())
+            }
+    
+            showInputWindow() // reload and show INPUT
         }
-
-        showInputWindow() // reload and show INPUT
     })
 
 
@@ -971,7 +977,7 @@ if(!instanceLock) {
                 const updatedData = JSON.stringify(data, null, 4)
                 fs.writeFileSync(checkDataFilePath, updatedData)
 
-
+                isUpdating = true
                 autoUpdater.quitAndInstall() // quit and install update
             }
         })
