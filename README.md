@@ -11,7 +11,7 @@
 ![framework](https://img.shields.io/badge/Electron-v28.1.4-47848f?style=flat-square&labelColor=30363d&logo=electron)
 -->
 
-> **A minimal reminder app based on colorful sticky notes**
+**A minimal reminder app based on colorful sticky notes**
 
 <br>
 
@@ -19,10 +19,6 @@
 ![note2](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/note_2.png)
 ![note3](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/note_3.png)
 ![note4](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/note_4.png)
-
-<br>
-
-___
 
 <br>
 
