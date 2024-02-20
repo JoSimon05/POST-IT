@@ -73,11 +73,9 @@ Every Note is stored inside a local database and reloaded on application startup
 <br>
 
 ## TRAY
-The Tray context menu contains some useful functions. 
+The Tray context menu is the main application menu and It contains all functions, you can find it in the lower right corner of your desktop
 
-> You can find the application Tray in the lower right corner of your desktop
->
-> ![tray](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/tray.png)
+![tray](https://github.com/JoSimon05/POST-IT/blob/Preview/.github/tray.png) (immagine più lunga)
 
 > ...
 
