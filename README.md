@@ -87,7 +87,7 @@ Updates are automatically checked and downloaded on startup, then you can choose
 <br>
 
 # TRY POST-IT!
-### Check [Releases page](https://github.com/JoSimon05/POST-IT/releases) and download the latest version available.
+**Check [Releases page](https://github.com/JoSimon05/POST-IT/releases) and download the latest version available.**
 
 > You just need to download this file:&nbsp; **POST-IT_{version}_setup.exe**
 
