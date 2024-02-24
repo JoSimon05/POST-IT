@@ -49,14 +49,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     } else {
 
-                        // block if over 70 characters (no link)
-                        if (textField.value.length > 70) {
+                        // block if over 50 characters (no link)
+                        if (textField.value.length > 50) {
                             
                             // save last text and restore it
                             lastText = textField.value
 
                             textField.style.caretColor = "transparent"
-                            textField.placeholder = "Max 70 characters!"
+                            textField.placeholder = "Max 50 characters!"
                             textField.value = ""
                             
 

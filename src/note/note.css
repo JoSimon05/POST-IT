@@ -1,5 +1,7 @@
 
 body {
+    -webkit-app-region: drag;
+
     width: 100vw;
     height: 100vh;
 
@@ -12,18 +14,11 @@ body {
 }
 
 
-#drag-region {
-    -webkit-app-region: drag;
-    
+#pin-container {
     width: 100%;
-    height: 40px;
-    
+    height: 35px;
+
     margin: 0;
-    
-    position: relative;
-    top: 0;
-    
-    background-color: transparent;
 
     display: flex;
     align-items: center;
@@ -31,28 +26,27 @@ body {
 }
 
 #pin-text {
-    color: rgba(0, 0, 0, 0.5);
-    font-size: smaller;
+    margin-top: 5px;
+
+    font-size: 12px;
     font-weight: 500;
-}
-
-#separator {
-    width: 85%;
-    height: 40px;
-
-    position: fixed;
-    top: 0;
-
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.7);
 }
 
 
 #note-field {
-    margin: 20px;
+    -webkit-app-region: no-drag;
 
-    color: rgba(0, 0, 0, 1);
+    width: 130px;
+
+    margin: 25px;
+    margin-top: 0;
+
+    position: fixed;
+
     font-size: medium;
     font-weight: 500;
+    color: black;
     
     display: -webkit-box;
     white-space: pre-wrap;
@@ -65,28 +59,32 @@ body {
 
 
 #message-field {
-    margin: 20px;
+    margin: 25px;
+    margin-bottom: 20px;
 
     position: fixed;
     left: 0;
     bottom: 0;
 
-    color: rgba(0, 0, 0, 0.5);
-    font-size: smaller;
+    font-size: 12px;
     font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
 
 #corner-container {
-    width: 50px;
-    height: 50px;
+    -webkit-app-region: no-drag;
+
+    width: 45px;
+    height: 45px;
 
     margin: 0;
 
     position: fixed;
     right: 0;
     bottom: 0;
-    
+
     background-color: transparent;
     
     cursor: pointer;
@@ -97,8 +95,8 @@ body {
     height: 100px;
 
     position: fixed;
-    left: 100% -50px;
-    top: 100% -50px;
+    left: 100% -45px;
+    top: 100% -45px;
 
     transition: .1s;
 }
@@ -115,13 +113,13 @@ body {
 }
 
 #corner-container:hover #corner-box {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
 }
 
 #corner-container:hover #corner {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
 
     box-shadow: -5px 10px 15px 0px rgb(0, 0, 0, 0.5);
 }

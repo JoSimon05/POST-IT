@@ -123,9 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         
         // manage NOTE colors
-        document.body.style.background = `linear-gradient(-45deg, rgba(0, 0, 0, 0) 12.5%, rgba(${colorsArray[data.colorIndex]}, 1) 0%)`
-        cornerBox.style.background = `linear-gradient(-45deg, rgba(0, 0, 0, 0) 50%, rgba(${colorsArray[data.colorIndex]}, 1) 50%)`
-        corner.style.background = `linear-gradient(-45deg, rgba(0, 0, 0, 0) 50%, rgba(${secColorsArray[data.colorIndex]}, 1) 50%)`
+        document.body.style.background = `linear-gradient(-45deg, transparent 12.5%, rgba(${colorsArray[data.colorIndex]}, 1) 0%)`
+        cornerBox.style.background = `linear-gradient(-45deg, transparent 50%, rgba(${colorsArray[data.colorIndex]}, 1) 50%)`
+        corner.style.background = `linear-gradient(-45deg, transparent 50%, rgba(${secColorsArray[data.colorIndex]}, 1) 50%)`
     })
 
 

@@ -446,8 +446,7 @@ if(!instanceLock) {
 
                     data.notesArray[noteIndex].id = updatedID
 
-                    const updatedData = JSON.stringify(data, null, 4)
-                    fs.writeFileSync(checkDataFilePath, updatedData)
+                    updateDataFile()
                 })
                 
                 // manage NOTE events
@@ -467,8 +466,7 @@ if(!instanceLock) {
             // update DATA file (already checked!)
             data.firstLaunch = false
 
-            const updatedData = JSON.stringify(data, null, 4)
-            fs.writeFileSync(checkDataFilePath, updatedData)
+            updateDataFile()
         }
 
 
@@ -500,8 +498,7 @@ if(!instanceLock) {
         
         data.autoLaunch = app.getLoginItemSettings().launchItems[0].enabled   // check auto-launch value
         
-        const updatedData = JSON.stringify(data, null, 4)
-        fs.writeFileSync(checkDataFilePath, updatedData)
+        updateDataFile()
 
 
         globalShortcut.unregisterAll() // unregister all shortcuts
@@ -574,7 +571,8 @@ if(!instanceLock) {
 
             webPreferences: {
                 nodeIntegration: true,
-                contextIsolation: false
+                contextIsolation: false,
+                spellcheck: false
             }
         })
         
@@ -593,8 +591,8 @@ if(!instanceLock) {
 
             icon: noteIcon,
 
-            width: 200,
-            height: 200,
+            width: 180,
+            height: 180,
 
             x: notePosX,
             y: notePosY,
@@ -615,7 +613,7 @@ if(!instanceLock) {
 
             webPreferences: {
                 nodeIntegration: true,
-                contextIsolation: false,
+                contextIsolation: false
             }
         })
 
@@ -631,8 +629,8 @@ if(!instanceLock) {
             title: "Help?",
             icon: helpIcon,
 
-            width: 400,
-            height: 400,
+            width: 450,
+            height: 450,
 
             center: true,
 
@@ -851,7 +849,6 @@ if(!instanceLock) {
 
     
 
-
     // FUNCTION: check for updates automatically (on startup)
     function checkForUpdatesOnStartup() {
 
@@ -974,8 +971,7 @@ if(!instanceLock) {
                 
                 data.firstLaunch = true
 
-                const updatedData = JSON.stringify(data, null, 4)
-                fs.writeFileSync(checkDataFilePath, updatedData)
+                updateDataFile()
 
                 
                 isUpdating = true
@@ -996,8 +992,7 @@ if(!instanceLock) {
             
             data.autoLaunch = false
 
-            const updatedData = JSON.stringify(data, null, 4)
-            fs.writeFileSync(checkDataFilePath, updatedData)
+            updateDataFile()
 
 
             // set auto-launch value
@@ -1013,8 +1008,7 @@ if(!instanceLock) {
         
             data.autoLaunch = true
 
-            const updatedData = JSON.stringify(data, null, 4)
-            fs.writeFileSync(checkDataFilePath, updatedData)
+            updateDataFile()
 
 
             // set auto-launch value
@@ -1044,8 +1038,7 @@ if(!instanceLock) {
         
         data.notesArray = []
 
-        const updatedData = JSON.stringify(data, null, 4)
-        fs.writeFileSync(checkDataFilePath, updatedData)
+        updateDataFile()
 
 
         // update TRAY
@@ -1072,8 +1065,7 @@ if(!instanceLock) {
         
         data.lastColorIndex = colorIndex
 
-        const updatedData = JSON.stringify(data, null, 4)
-        fs.writeFileSync(checkDataFilePath, updatedData)
+        updateDataFile()
     }
 
 
@@ -1107,8 +1099,7 @@ if(!instanceLock) {
                     data.notesArray[noteIndex].x = updatedPosX
                     data.notesArray[noteIndex].y = updatedPosY
 
-                    const updatedData = JSON.stringify(data, null, 4)
-                    fs.writeFileSync(checkDataFilePath, updatedData)
+                    updateDataFile()
                 }
             })
         })
@@ -1131,6 +1122,13 @@ if(!instanceLock) {
                 noteFromId.setEnabled(true)
             })
         })
+    }
+
+
+    // FUNCTION: update DATA file
+    function updateDataFile() {
+        const updatedData = JSON.stringify(data, null, 4)
+        fs.writeFileSync(checkDataFilePath, updatedData)
     }
 
 
@@ -1192,8 +1190,7 @@ if(!instanceLock) {
 
                 data.notesArray.push(noteData)
 
-                const updatedData = JSON.stringify(data, null, 4)
-                fs.writeFileSync(checkDataFilePath, updatedData)
+                updateDataFile()
                 
                 
                 // update TRAY
@@ -1239,8 +1236,7 @@ if(!instanceLock) {
 
             data.notesArray.splice(noteIndex, 1)
 
-            const updatedData = JSON.stringify(data, null, 4)
-            fs.writeFileSync(checkDataFilePath, updatedData)
+            updateDataFile()
         }
 
         
