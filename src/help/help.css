@@ -105,8 +105,8 @@ li {
     height: 180px;
 
     position: fixed;
-    left: 100% -90px;
-    top: 100% -90px;
+    left: calc(100% - 90px);
+    top: calc(100% - 90px);
 
     background: linear-gradient(-45deg, transparent 50%, white 50%);
 

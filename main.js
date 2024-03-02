@@ -721,11 +721,15 @@ if(!instanceLock) {
             // reload INPUT if destroyed
             loadInputWindow()
 
-            inputWin.on("ready-to-show", () => inputWin.show())
+            inputWin.on("ready-to-show", () => {
+                inputWin.webContents.send("displayColor", colorIndex) // IPC: send 'displayColor' event
+                inputWin.show()
+            })
             
         } else {
 
             if (!inputWin.isVisible()) {
+                inputWin.webContents.send("displayColor", colorIndex) // IPC: send 'displayColor' event
                 inputWin.show()
                 
             } else {
@@ -1060,9 +1064,13 @@ if(!instanceLock) {
 
         colorIndex = index
 
+        // IPC: send 'displayColor' event
+        inputWin.webContents.send("displayColor", colorIndex)
+
+
         // check and update DATA file
         checkDataFile()
-        
+
         data.lastColorIndex = colorIndex
 
         updateDataFile()

@@ -95,8 +95,8 @@ body {
     height: 100px;
 
     position: fixed;
-    left: 100% -45px;
-    top: 100% -45px;
+    left: calc(100% - 45px);
+    top: calc(100% - 45px);
 
     transition: .1s;
 }

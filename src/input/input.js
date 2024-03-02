@@ -5,12 +5,22 @@ const linkify = require("linkifyjs")
 document.addEventListener("DOMContentLoaded", () => {
 
     const textField = document.getElementById("text-field")
+    const textContainer = document.getElementById("container")
     
     let lastText = null
     let timeoutID
 
     const defaultPlaceholder = "Type something or paste a link..."
     textField.placeholder = defaultPlaceholder
+
+    const colorsArray = [
+        "255, 193, 74",   // orange
+        "255, 255, 100",   // yellow
+        "185, 235, 71",   // green
+        "138, 222, 255",   // blue
+        "206, 129, 255",   // violet
+        "255, 147, 217"   // pink
+    ]
 
 
     // execute when KEY is pressed
@@ -119,5 +129,11 @@ document.addEventListener("DOMContentLoaded", () => {
             textField.placeholder = defaultPlaceholder
             lastText = null
         }, 1000)
+    })
+
+
+    // IPC: change INPUT border color
+    ipcRenderer.on("displayColor", (event, colorIndex) => {
+        textContainer.style.borderColor = `rgba(${colorsArray[colorIndex]}, 1)`
     })
 })
