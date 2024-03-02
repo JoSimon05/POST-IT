@@ -80,7 +80,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (timeoutID) clearTimeout(timeoutID)
         
                     timeoutID = setTimeout(() => {
-                        message.innerHTML = ""
+
+                        if (message.innerText == "Open link..." || message.innerText == "Delete...") {
+                            clearTimeout(timeoutID)
+        
+                        } else message.innerHTML = ""
+        
                     }, 3000)
                 }
 
@@ -109,7 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (timeoutID) clearTimeout(timeoutID)
                 
                 timeoutID = setTimeout(() => {
-                    message.innerHTML = ""
+
+                    if (message.innerText == "Open link..." || message.innerText == "Delete...") {
+                        clearTimeout(timeoutID)
+    
+                    } else message.innerHTML = ""
+    
                 }, 3000)
             })
 
@@ -127,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cornerBox.style.background = `linear-gradient(-45deg, transparent 50%, rgba(${colorsArray[data.colorIndex]}, 1) 50%)`
         corner.style.background = `linear-gradient(-45deg, transparent 50%, rgba(${secColorsArray[data.colorIndex]}, 1) 50%)`
     })
+
 
 
     // mouse events (text - no link)
@@ -154,7 +165,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (timeoutID) clearTimeout(timeoutID)
     
                 timeoutID = setTimeout(() => {
-                    message.innerHTML = ""
+
+                    if (message.innerText == "Copy..." || message.innerText == "Delete...") {
+                        clearTimeout(timeoutID)
+    
+                    } else message.innerHTML = ""
+    
                 }, 3000)
             }
     
@@ -182,7 +198,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (timeoutID) clearTimeout(timeoutID)
             
             timeoutID = setTimeout(() => {
-                message.innerHTML = ""
+
+                if (message.innerText == "Copy..." || message.innerText == "Delete...") {
+                    clearTimeout(timeoutID)
+
+                } else message.innerHTML = ""
+
             }, 3000)
         }
     })
