@@ -108,7 +108,7 @@ Updates are automatically checked and downloaded on startup, then you can choose
 <br>
 
 > [!TIP]
-> If you have problems with the operation of the application, try restarting it (use "Quit" in Tray context menu) <br>
+> If you have problems with the operation of the application (about shortcuts, visual defects, etc...), try restarting it (use "**Quit**" in Tray context menu) <br>
   Even if problems persist, please report them in the [Issues section](https://github.com/JoSimon05/POST-IT/issues)
 
 
