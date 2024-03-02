@@ -97,8 +97,6 @@ body {
     position: fixed;
     left: calc(100% - 45px);
     top: calc(100% - 45px);
-
-    transition: .1s;
 }
 
 #corner {
@@ -108,13 +106,13 @@ body {
     position: fixed;
     right: 0;
     bottom: 0;
-
-    transition: .1s;
 }
 
 #corner-container:hover #corner-box {
     width: 45px;
     height: 45px;
+    
+    transition: width 0.085s ease, height 0.085s ease;
 }
 
 #corner-container:hover #corner {
@@ -122,4 +120,6 @@ body {
     height: 45px;
 
     box-shadow: -5px 10px 15px 0px rgb(0, 0, 0, 0.5);
+    
+    transition: width 0.100s ease, height 0.100s ease;
 }
