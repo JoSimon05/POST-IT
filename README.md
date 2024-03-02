@@ -87,7 +87,7 @@ Updates are automatically checked and downloaded on startup, then you can choose
 <br>
 
 # TRY POST-IT!
-**Check [Releases page](https://github.com/JoSimon05/POST-IT/releases) and download the latest version available.**
+**Check [Releases section](https://github.com/JoSimon05/POST-IT/releases) and download the latest version available.**
 
 > You just need to download this file:&nbsp; **POST-IT_{version}_setup.exe**
 
@@ -106,6 +106,10 @@ Updates are automatically checked and downloaded on startup, then you can choose
 > > That's because I still cannot afford the *authentication certificate* for native applications (It's not that cheap...)
 
 <br>
+
+> [!TIP]
+> If you have problems with the operation of the application, try restarting it (use "Quit" in Tray context menu) <br>
+  Even if problems persist, please report them in the [Issues section](https://github.com/JoSimon05/POST-IT/issues)
 
 
 
